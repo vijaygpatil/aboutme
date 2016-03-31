@@ -1,6 +1,5 @@
 server:
   port: 7070
-  context-path: /aboutme
   
   
 spring:
