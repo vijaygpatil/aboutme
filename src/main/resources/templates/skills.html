@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+    <body>
+        <div th:fragment="skills">
+            <div  class="container">
+                <header role="banner">
+                    <h2 class="section-title"><i class="fa fa-code"/><span th:text="' '+#{skills.header}"/></h2>
+                </header>
+                
+                <article role="main">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-info">
+                            <dl class="dl-horizontal">
+                                <dt><i class="fa fa-laptop fa-fw"/><span th:text="' '+#{skills.languages}"/></dt>
+                                <dd><span th:utext="#{skills.languages.list}"/></dd>
+                                <dt><i class="fa fa-cogs fa-fw"/><span th:text="' '+#{skills.frameworks}"/></dt>
+                                <dd><span th:utext="#{skills.frameworks.list}"/></dd>
+                                <dt><i class="fa fa-globe fa-fw"/><span th:text="' '+#{skills.webtechnology}"/></dt>
+                                <dd><span th:utext="#{skills.webtechnology.list}"/></dd>
+                                <dt><i class="fa fa-flask fa-fw"/><span th:text="' '+#{skills.testing}"/></dt>
+                                <dd><span th:utext="#{skills.testing.list}"/></dd>
+                                <dt><i class="fa fa-database fa-fw"/><span th:text="' '+#{skills.database}"/></dt>
+                                <dd><span th:utext="#{skills.database.list}"/></dd>
+                                <dt><i class="fa fa-wrench fa-fw"></i><span th:text="' '+#{skills.tools}"/></dt>
+                                <dd><span th:utext="#{skills.tools.list}"/></dd>
+                            </dl>
+                        </div>
+                        
+                        <div id="strength" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h3 th:text="#{skills.strength.header}"/>
+                            <div id="myProgressbar1" class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 0%">
+                                    <span>Java</span>
+                                </div>
+                            </div>
+                            <div id="myProgressbar2" class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 0%">
+                                    <span>Spring MVC</span>
+                                </div>
+                            </div>
+                            <div id="myProgressbar3" class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 0%">
+                                    <span>JQuery/Javascript</span>
+                                </div>
+                            </div>
+                            <div id="myProgressbar4" class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 0%">
+                                    <span>HTML</span>
+                                </div>
+                            </div>
+                            <div id="myProgressbar5" class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 0%">
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+                        </div>
+				    </div>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

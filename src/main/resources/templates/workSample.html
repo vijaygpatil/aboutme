@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="worksample">
+		<div class="container">
+			<header role="banner">
+				<h2 class="section-title"><i class="fa fa-external-link-square"/><span th:text="' '+#{worksamples.header}"/></h2>
+			</header>
+    
+            <article role="main">
+                <div class="row">
+                      <ul id="workSampleList">
+                          <li><a target="_blank" href="http://patilvijayg.com/resume">Profile</a></li>
+                          <li><a target="_blank" href="http://patilvijayg.com/wordpress">Blog</a></li>
+                          <li><a target="_blank" href="https://github.com/vijaygpatil">Repository</a></li>
+                      </ul>
+                  </div>
+            </article>
+		</div>
+	</div>
+</body>
+</html>

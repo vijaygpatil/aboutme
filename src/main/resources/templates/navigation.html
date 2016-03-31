@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+    <body>
+        <div th:fragment="menu">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
+                        <ul class="nav navbar-nav" id="main-menu">
+                            <li><a class="welcome-nav" th:href="@{#page-welcome}"><i class="fa fa-home"></i> <span class="hidden-xs">Home</span></a></li>
+                            <li><a class="profile-nav" th:href="@{#page-profile}"><i class="fa fa-user"></i> <span class="hidden-xs">About Me</span></a></li>
+                            <li><a class="skills-nav" th:href="@{#page-skills}"><i class="fa fa-code"></i> <span class="hidden-xs">Skills</span></a></li>
+                            <li><a class="experience-nav" th:href="@{#page-experience}"><i class="fa fa-desktop"></i> <span class="hidden-xs">Experience</span></a></li>
+                            <li><a class="education-nav" th:href="@{#page-education}"><i class="fa fa-graduation-cap"></i> <span class="hidden-xs">Education</span></a></li>
+                            <li><a class="blog-nav" th:href="@{#page-blog}"><i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">Blog</span></a></li>
+                            <li><a class="portfolio-nav" th:href="@{#page-portfolio}"><i class="fa fa-folder"></i> <span class="hidden-xs">Portfolio</span></a></li>
+                            <li><a class="contact-nav" th:href="@{#page-contact}"><i class="fa fa-envelope"></i> <span class="hidden-xs">Contact</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

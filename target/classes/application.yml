@@ -1,0 +1,15 @@
+server:
+  port: 7070
+  context-path: /aboutme
+  
+  
+spring:
+  mail:
+    host: smtp.gmail.com
+    username: patilvijayg@gmail.com
+    password: Sn0wba!!
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false

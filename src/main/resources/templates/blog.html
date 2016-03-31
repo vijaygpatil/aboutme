@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="blog">
+		<div class="container">
+			<header role="banner">
+				<h2 class="section-title"><i class="fa fa-pencil-square-o" ></i><span th:text="' '+#{blog.header}" ></span></h2>
+			</header>
+            <article role="main">
+            	<div id="feedContainer"></div>
+            </article>
+		</div>
+	</div>
+</body>
+</html>

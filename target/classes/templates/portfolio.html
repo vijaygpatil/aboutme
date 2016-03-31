@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="portfolio">
+		<div class="container">
+			<header role="banner">
+				<h2 class="section-title"><i class="fa fa-folder" /><span th:text="' '+#{portfolio.header}" /></h2>
+			</header>
+    
+            <article role="main">
+                <div class="row" role="application">
+                    <div id="grid-controls-wrapper">
+                        <ul class="nav nav-pills center-pills grid-controls">
+                            <li class="active filter"><a href="javascript:void(0)" data-filter="*"><h4><span th:text="#{portfolio.all}"/></h4></a></li>           
+                            <li class="filter"><a href="javascript:void(0)"  data-filter=".photography"><h4><span th:text="#{portfolio.photography}"/></h4></a></li>
+                            <li class="filter" ><a href="javascript:void(0)" data-filter=".web"><h4><span th:text="#{portfolio.web}"/></h4></a></li>
+                        </ul>
+                    </div> 
+	            
+	                <div>
+                        <ul id="grid" class="grid-wrapper">
+                            <li class="mix web" >
+	                           <a href="http://i.imgur.com/XOPdHEr.png"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/resume_th.png"  alt="" /></a>
+	                           <h4><span class="text-info" id="resumeLink" th:text="#{portfolio.web.resume}"/></h4>
+                            </li>
+                            <li class="mix web">
+                                <a href="http://i.imgur.com/Zh2Gm2K.png"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/wordpress_th.png" alt="" /></a>
+                                <h4><span class="text-info" id="wordpressLink" th:text="#{portfolio.web.wordpress}"/></h4>
+                            </li>
+                            <li class="mix web">
+                                <a href="img/portfolio/large/dashboard.png"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/dashboard_th.png" alt="" /></a>
+                                <h4><span class="text-info" id="dashboardLink" th:text="#{portfolio.web.dashboard}"/></h4>
+                            </li>
+                            <li class="mix web">
+                                <a href="img/portfolio/large/06.png"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/lab_th.png" alt="" /></a>
+                                <h4><span class="text-info" id="labLink" th:text="#{portfolio.web.lab}"/></h4>
+                            </li>
+                            <li class="mix photography">
+                                <a  href="http://i.imgur.com/Q1WcnvF.jpg"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/rocky_th.jpg" alt="" /></a>
+                                <h4><span class="text-info" id="photography1Link" th:text="#{portfolio.web.rockys}"/></h4>
+                            </li>
+                            <li class="mix photography">
+                                <a  href="http://i.imgur.com/ZMZWUUa.gif"><div class="overlay"><i class="fa fa-search"></i></div><img class="img-thumbnail" width="200" height="150" src="img/portfolio/small/pacificcoast_th.jpg" alt="" /></a>
+                                <h4><span class="text-info" id="photography2Link" th:text="#{portfolio.web.pacificCoast}"/></h4>
+                            </li>
+                        </ul>
+	                </div>
+	            </div>
+            </article>
+		</div>
+	</div>
+</body>
+</html>

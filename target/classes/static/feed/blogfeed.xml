@@ -1,0 +1,1712 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Vijay Patil&#039;s Blog</title>
+	<atom:link href="http://patilvijayg.synology.me/wordpress/feed/" rel="self" type="application/rss+xml" />
+	<link>http://patilvijayg.synology.me/wordpress</link>
+	<description>Tools, Tips, Tricks, Guidelines and Recommendations for Web Developers</description>
+	<lastBuildDate>Sun, 27 Mar 2016 06:18:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=4.3.2</generator>
+
+<image>
+	<url>http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/cropped-Leo_Black_512X512-32x32.png</url>
+	<title>Vijay Patil&#039;s Blog</title>
+	<link>http://patilvijayg.synology.me/wordpress</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Consuming REST Service with JavaScript</title>
+		<link>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/#comments</comments>
+		<pubDate>Fri, 27 Nov 2015 07:16:50 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[REST]]></category>
+		<category><![CDATA[Ajax]]></category>
+		<category><![CDATA[RESTFul]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=253</guid>
+		<description><![CDATA[For consuming REST Services using front-end JavaScript frameworks, we recommend using jQuery. jQuery has a robust AJAX functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher. Here is a sample template for making service calls using AJAX in jQuery. There are more options in jQuery.ajax then what are listed below, you can use [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>For consuming REST Services using front-end JavaScript frameworks, we recommend using <a class="external-link" href="http://jquery.com/" rel="nofollow">jQuery</a>. jQuery has a robust <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">AJAX</a> functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher.</p>
+<p>Here is a sample template for making service calls using AJAX in jQuery. There are more options in <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">jQuery.ajax</a> then what are listed below, you can use them based on your needs.</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeHeader panelHeader pdl"><b>Sample jQuery.ajax template for making REST Service Calls</b></div>
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_285523" class="syntaxhighlighter sh-confluence nogutter  javascript">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="javascript plain">$.ajax({</code></div>
+<div class="line number2 index1 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.</code></div>
+<div class="line number3 index2 alt2"><code class="javascript spaces">    </code><code class="javascript plain">type: Type, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number4 index3 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number5 index4 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// Location of the service</code></div>
+<div class="line number6 index5 alt1"><code class="javascript spaces">    </code><code class="javascript plain">url: serviceURL, </code><code class="javascript comments">// Required</code></div>
+<div class="line number7 index6 alt2"><code class="javascript spaces">    </code></div>
+<div class="line number8 index7 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// An object of additional header key/value pairs to send along with requests using the XMLHttpRequest transport.</code></div>
+<div class="line number9 index8 alt2"><code class="javascript spaces">    </code><code class="javascript plain">headers: { </code><code class="javascript comments">// Optional, depending upon the service</code></div>
+<div class="line number10 index9 alt1"><code class="javascript spaces">        </code><code class="javascript plain">X-client-id: </code><code class="javascript string">""</code><code class="javascript plain">,</code></div>
+<div class="line number11 index10 alt2"><code class="javascript spaces">        </code><code class="javascript plain">X-author-id: </code><code class="javascript string">""</code><code class="javascript plain">,</code></div>
+<div class="line number12 index11 alt1"><code class="javascript spaces">        </code><code class="javascript plain">X-locale: </code><code class="javascript string">"en_US"</code></div>
+<div class="line number13 index12 alt2"><code class="javascript spaces">    </code><code class="javascript plain">},</code></div>
+<div class="line number14 index13 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number15 index14 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// Force response to be cached by the browser. false for dataType 'script' and 'jsonp'.</code></div>
+<div class="line number16 index15 alt1"><code class="javascript spaces">    </code><code class="javascript plain">cache: </code><code class="javascript keyword">true</code><code class="javascript plain">, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number17 index16 alt2"><code class="javascript spaces">    </code></div>
+<div class="line number18 index17 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// Set a timeout (in milliseconds) for the request. Refer to the service consumption section above.</code></div>
+<div class="line number19 index18 alt2"><code class="javascript spaces">    </code><code class="javascript plain">timeout: 10000, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number20 index19 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number21 index20 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing.</code></div>
+<div class="line number22 index21 alt1"><code class="javascript spaces">    </code><code class="javascript plain">data: Data, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number23 index22 alt2"><code class="javascript spaces">    </code></div>
+<div class="line number24 index23 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// Content type sent to server. Default is "application/x-www-form-urlencoded; charset=UTF-8"</code></div>
+<div class="line number25 index24 alt2"><code class="javascript spaces">    </code><code class="javascript plain">contentType: ContentType, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number26 index25 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number27 index26 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// The type of data that you're expecting back from the server.</code></div>
+<div class="line number28 index27 alt1"><code class="javascript spaces">    </code><code class="javascript plain">dataType: DataType, </code><code class="javascript comments">// Required</code></div>
+<div class="line number29 index28 alt2"><code class="javascript spaces">    </code></div>
+<div class="line number30 index29 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string.</code></div>
+<div class="line number31 index30 alt2"><code class="javascript spaces">    </code><code class="javascript plain">processdata: ProcessData, </code><code class="javascript comments">// Optional</code></div>
+<div class="line number32 index31 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number33 index32 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// When Service call succeeds</code></div>
+<div class="line number34 index33 alt1"><code class="javascript spaces">    </code><code class="javascript plain">success: </code><code class="javascript keyword">function</code><code class="javascript plain">(data, textStatus, jqXHR) { </code><code class="javascript comments">// Required</code></div>
+<div class="line number35 index34 alt2"><code class="javascript spaces">        </code><code class="javascript comments">// The service call succeeded, do some thing with the data.</code></div>
+<div class="line number36 index35 alt1"><code class="javascript spaces">    </code><code class="javascript plain">},</code></div>
+<div class="line number37 index36 alt2"><code class="javascript spaces">    </code></div>
+<div class="line number38 index37 alt1"><code class="javascript spaces">    </code><code class="javascript comments">// When Service call fails</code></div>
+<div class="line number39 index38 alt2"><code class="javascript spaces">    </code><code class="javascript plain">error: </code><code class="javascript keyword">function</code><code class="javascript plain">(jqXHR, textStatus, errorThrown){ </code><code class="javascript comments">// Required</code></div>
+<div class="line number40 index39 alt1"><code class="javascript spaces">        </code><code class="javascript comments">// Handle error scenario</code></div>
+<div class="line number41 index40 alt2"><code class="javascript spaces">    </code><code class="javascript plain">},</code></div>
+<div class="line number42 index41 alt1"><code class="javascript spaces">    </code></div>
+<div class="line number43 index42 alt2"><code class="javascript spaces">    </code><code class="javascript comments">// An object of numeric HTTP codes and functions to be called when the response has the corresponding code.</code></div>
+<div class="line number44 index43 alt1"><code class="javascript spaces">    </code><code class="javascript plain">statusCode: { </code><code class="javascript comments">// Optional</code></div>
+<div class="line number45 index44 alt2"><code class="javascript spaces">        </code><code class="javascript plain">400: </code><code class="javascript keyword">function</code><code class="javascript plain">() { },</code></div>
+<div class="line number46 index45 alt1"><code class="javascript spaces">        </code><code class="javascript plain">404: </code><code class="javascript keyword">function</code><code class="javascript plain">() { }</code></div>
+<div class="line number47 index46 alt2"><code class="javascript spaces">    </code><code class="javascript plain">}</code></div>
+<div class="line number48 index47 alt1"><code class="javascript plain">});</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Refer <a href="http://patilvijayg.synology.me/wordpress/restful-service-development/">RESTful Service Development</a><br />
+Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-codes/‎">REST Response Status Codes</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>RESTful Service Development</title>
+		<link>http://patilvijayg.synology.me/wordpress/restful-service-development/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/restful-service-development/#comments</comments>
+		<pubDate>Wed, 25 Nov 2015 20:56:30 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[REST]]></category>
+		<category><![CDATA[Content Type]]></category>
+		<category><![CDATA[DELETE]]></category>
+		<category><![CDATA[Error Status Code]]></category>
+		<category><![CDATA[GET]]></category>
+		<category><![CDATA[HTTP Methods]]></category>
+		<category><![CDATA[PATCH]]></category>
+		<category><![CDATA[POST]]></category>
+		<category><![CDATA[PUT]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=171</guid>
+		<description><![CDATA[Terminology Resource A source of information that can be identified by a logical URL. Representation The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc. State The current condition of a resource. Transfer Movement of a resource, in some representational form. If the request method is [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h3>Terminology</h3>
+<table>
+<tbody>
+<tr>
+<td><strong>Resource</strong></td>
+<td>A source of information that can be identified by a logical URL.</td>
+</tr>
+<tr>
+<td><strong>Representation</strong></td>
+<td>The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc.</td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>The current condition of a resource.</td>
+</tr>
+<tr>
+<td><strong>Transfer</strong></td>
+<td>Movement of a resource, in some representational form. If the request method is something other than GET, the request may also change the state of the resource.</td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>Uniform Resource Locator &#8211; the (web) location at which a resource resides.</td>
+</tr>
+<tr>
+<td><strong>URI</strong></td>
+<td>Uniform Resource Identifier &#8211; the identifier of the web resource. URIs can be classified as locators (URLs), as names (URNs), or as both. A uniform resource name (URN) functions like a person&#8217;s name, while a uniform resource locator (URL) resembles that person&#8217;s street address. In other words: the URN defines an item&#8217;s identity, while the URL provides a method for finding it.</td>
+</tr>
+<tr>
+<td><strong>Object Model</strong></td>
+<td>A collection of objects which are exposed to consumers based on real life constructs (such as devices, services, products), rather than the Data model.</td>
+</tr>
+<tr>
+<td><strong>Domain View</strong></td>
+<td>A holistic view of the domain based on it&#8217;s objects and how they can be examined and manipulated and how they interact with one another</td>
+</tr>
+<tr>
+<td><strong>Data Model</strong></td>
+<td>A data model explicitly determines the structure of data. The Data Model may not, and probably should not, match the Object Model.</td>
+</tr>
+<tr>
+<td><strong>Idempotent Method</strong></td>
+<td>A method that may or may not change the state of a resource, but repeated requests have no further side effects after the first request. PUT and DELETE are idempotent but not safe.</td>
+</tr>
+<tr>
+<td><strong>Safe Method</strong></td>
+<td>A method that does not change the state of a resource. GET is both safe and idempotent. POST is neither safe nor idempotent.</td>
+</tr>
+<tr>
+<td><strong>Path Parameter</strong></td>
+<td>Path parameters are part of the URL. For example, the URL can include http://foo.garmin.com/accessories/{accessoryId}, where {accessoryId} is a path parameter that identifies the accessory by its unique identifier.</td>
+</tr>
+<tr>
+<td><strong>Query Parameters</strong></td>
+<td>Query parameters are appended to the URL after a “?” with name-value pairs. For instance, if the URL is http://foo.garmin.com/accessories?type=collar&amp;color=blue, the query parameter names are type and color and the values are collar and blue. Query parameters are often used when filtering or paging through HTTP GET requests.</td>
+</tr>
+</tbody>
+</table>
+<h3>HTTP Methods for RESTful Services</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>HTTP Verb</th>
+<th>CRUD</th>
+<th>Entire Collection (e.g. /customers)</th>
+<th>Specific Item (e.g. /customers/{id})</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td>Create</td>
+<td>201 (Created), &#8216;Location&#8217; header with link to /customers/{id} containing new ID.</td>
+<td>404 (Not Found), 409 (Conflict) if resource already exists..</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>Read</td>
+<td>200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists.</td>
+<td>200 (OK), single customer. 404 (Not Found), if ID not found or invalid.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Update/Replace</td>
+<td>404 (Not Found), unless you want to update/replace every resource in the entire collection.</td>
+<td>200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Update/Modify</td>
+<td>404 (Not Found), unless you want to modify the collection itself.</td>
+<td>200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Delete</td>
+<td>404 (Not Found), unless you want to delete the whole collection—not often desirable.</td>
+<td>200 (OK). 404 (Not Found), if ID not found or invalid.</td>
+</tr>
+</tbody>
+</table>
+<h3>POST</h3>
+<p>The POST verb is most-often utilized to **create** new resources. In particular, it&#8217;s used to create subordinate resources. That is, subordinate to some other (e.g. parent) resource. In other words, when creating a new resource, POST to the parent and the service takes care of associating the new resource with the parent, assigning an ID (new resource URI), etc.</p>
+<p>On successful creation, return HTTP status 201, returning a Location header with a link to the newly-created resource with the 201 HTTP status.</p>
+<p>POST is neither safe nor idempotent. It is therefore recommended for non-idempotent resource requests. Making two identical POST requests will most-likely result in two resources containing the same information.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>POST http://www.example.com/customers</li>
+<li>POST http://www.example.com/customers/12345/orders</li>
+</ul>
+<h3>GET</h3>
+<p>The HTTP GET method is used to **read** (or retrieve) a representation of a resource. In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK). In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST).</p>
+<p>According to the design of the HTTP specification, GET (along with HEAD) requests are used only to read data and not change it. Therefore, when used this way, they are considered safe. That is, they can be called without risk of data modification or corruption—calling it once has the same effect as calling it 10 times, or none at all. Additionally, GET (and HEAD) is idempotent, which means that making multiple identical requests ends up having the same result as a single request.</p>
+<p>Do not expose unsafe operations via GET—it should never modify any resources on the server.</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>GET http://www.example.com/customers/12345</li>
+<li>GET http://www.example.com/customers/12345/orders</li>
+<li>GET http://www.example.com/buckets/sample</li>
+</ul>
+<h3>PUT</h3>
+<p>PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource.</p>
+<p>However, PUT can also be used to create a resource in the case where the resource ID is chosen by the client instead of by the server. In other words, if the PUT is to a URI that contains the value of a non-existent resource ID. Again, the request body contains a resource representation. Many feel this is convoluted and confusing. Consequently, this method of creation should be used sparingly, if at all.</p>
+<p>Alternatively, use POST to create new resources and provide the client-defined ID in the body representation—presumably to a URI that doesn&#8217;t include the ID of the resource (see POST below).</p>
+<p>On successful update, return 200 (or 204 if not returning any content in the body) from a PUT. If using PUT for create, return HTTP status 201 on successful creation. A body in the response is optional—providing one consumes more bandwidth. It is not necessary to return a link via a Location header in the creation case since the client already set the resource ID.</p>
+<p>PUT is not a safe operation, in that it modifies (or creates) state on the server, but it is idempotent. In other words, if you create or update a resource using PUT and then make that same call again, the resource is still there and still has the same state as it did with the first call.</p>
+<p>If, for instance, calling PUT on a resource increments a counter within the resource, the call is no longer idempotent. Sometimes that happens and it may be enough to document that the call is not idempotent. However, it&#8217;s recommended to keep PUT requests idempotent. It is strongly recommended to use POST for non-idempotent requests.</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>PUT http://www.example.com/customers/12345</li>
+<li>PUT http://www.example.com/customers/12345/orders/98765</li>
+<li>PUT http://www.example.com/buckets/secret_stuff</li>
+</ul>
+<h3>PATCH</h3>
+<p>PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource.</p>
+<p>This resembles PUT, but the body contains a set of instructions describing how a resource currently residing on the server should be modified to produce a new version. This means that the PATCH body should not just be a modified part of the resource, but in some kind of patch language like JSON Patch or XML Patch.</p>
+<p>PATCH is neither safe nor idempotent. However, a PATCH request can be issued in such a way as to be idempotent, which also helps prevent bad outcomes from collisions between two PATCH requests on the same resource in a similar time frame. Collisions from multiple PATCH requests may be more dangerous than PUT collisions because some patch formats need to operate from a known base-point or else they will corrupt the resource. Clients using this kind of patch application should use a conditional request such that the request will fail if the resource has been updated since the client last accessed the resource. For example, the client can use a strong ETag in an If-Match header on the PATCH request.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>PATCH http://www.example.com/customers/12345</li>
+<li>PATCH http://www.example.com/customers/12345/orders/98765</li>
+<li>PATCH http://www.example.com/buckets/secret_stuff</li>
+</ul>
+<h3>DELETE</h3>
+<p>DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.</p>
+<p>On successful deletion, return HTTP status 200 (OK) along with a response body, perhaps the representation of the deleted item (often demands too much bandwidth), or a wrapped response (see Return Values below). Either that or return HTTP status 204 (NO CONTENT) with no response body. In other words, a 204 status with no body, or the JSEND-style response and HTTP status 200 are the recommended responses.</p>
+<p>HTTP-spec-wise, DELETE operations are idempotent. If you DELETE a resource, it&#8217;s removed. Repeatedly calling DELETE on that resource ends up the same: the resource is gone. If calling DELETE say, decrements a counter (within the resource), the DELETE call is no longer idempotent. As mentioned previously, usage statistics and measurements may be updated while still considering the service idempotent as long as no resource data is changed. Using POST for non-idempotent resource requests is recommended.</p>
+<p>There is a caveat about DELETE idempotence, however. Calling DELETE on a resource a second time will often return a 404 (NOT FOUND) since it was already removed and therefore is no longer findable. This, by some opinions, makes DELETE operations no longer idempotent, however, the end-state of the resource is the same. Returning a 404 is acceptable and communicates accurately the status of the call.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>DELETE http://www.example.com/customers/12345</li>
+<li>DELETE http://www.example.com/customers/12345/orders</li>
+<li>DELETE http://www.example.com/bucket/sample</li>
+</ul>
+<h3>Error Status Codes</h3>
+<p>Please refer to the following blog for detailed <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-codes/">Error Status Codes</a></p>
+<h3>Content Type</h3>
+<p>The Accepts header gives the client a chance to tell the server which format it wants for a resource. The clients should always specify the MIME/Content Types (MIME, Media or Content type are analogous terms) in the HTTP Accept Header in request. MIME/Media/Content Types have the following syntax:</p>
+<table>
+<tbody>
+<tr>
+<td><code>type "/" subtype *( ";" parameter )</code></td>
+</tr>
+</tbody>
+</table>
+<p>REST APIs typically work with media types that fall under the &#8220;application&#8221; type but you can use it for other Mime Types listed below also. Note that parameters may follow the type/subtype in the form of attribute=value pairs that are separated by a leading semi-colon (;) character. HTTP/1.1 uses media types in the values of the Accept and Content-Type headers. As shown in the example below, client applications can convey their preference for a response body&#8217;s media type using HTTP/1.1&#8217;s Accept request header.</p>
+<table>
+<tbody>
+<tr>
+<td><code>Accept: application/json,application/xml;q=0.9,text/html;q=0.8,*/*;q=0.7</code></td>
+</tr>
+</tbody>
+</table>
+<p>In the Content-Type header of an HTTP/1.1 request or response, a media type reference indicates the &#8220;type&#8221; associated with the message body’s byte sequence. The example below demonstrate a Content-Type header value that references a media type with a &#8220;charset&#8221; parameter:</p>
+<table>
+<tbody>
+<tr>
+<td><code>Content-type: text/html; charset=ISO-8859-4</code></td>
+</tr>
+</tbody>
+</table>
+<p>REST APIs commonly use either the &#8220;application/json&#8221; or the &#8220;application/xml&#8221; media type in the Content-Type header of an HTTP/1.1 request or response. Some other common Media types are:</p>
+<p>Type application (For Multipurpose files)</p>
+<table>
+<tbody>
+<tr>
+<td>
+<ul>
+<li>application/json: JavaScript Object Notation JSON</li>
+<li>application/xml: XML files</li>
+<li>application/atom+xml: Atom feeds</li>
+<li>application/rss+xml: RSS feeds</li>
+<li>application/xhtml+xml: XHTML</li>
+<li>application/javascript: ECMAScript/JavaScript</li>
+<li>application/pdf: Portable Document Format</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Type text (For human-readable text and source code)text/html: HTML</p>
+<table>
+<tbody>
+<tr>
+<td>
+<ul>
+<li>text/xml: Extensible Markup Language</li>
+<li>text/csv: Comma-separated values</li>
+<li>text/plain: Textual data</li>
+<li>text/css: Cascading Style Sheets</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For a detailed listing of Media Types encompassing image, video, audio etc., please refer: http://en.wikipedia.org/wiki/Internet_media_type</p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/restful-service-development/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Useful Git Tips Tricks and Workflow</title>
+		<link>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/#comments</comments>
+		<pubDate>Thu, 15 Oct 2015 14:55:40 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[GIT]]></category>
+		<category><![CDATA[difftool]]></category>
+		<category><![CDATA[git merge]]></category>
+		<category><![CDATA[git remote branch]]></category>
+		<category><![CDATA[git workflow]]></category>
+		<category><![CDATA[git-auto-complete]]></category>
+		<category><![CDATA[git-bash-prompt]]></category>
+		<category><![CDATA[gitconfig]]></category>
+		<category><![CDATA[gitignore]]></category>
+		<category><![CDATA[mergetool]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=181</guid>
+		<description><![CDATA[Getting Help There are basically two ways on the command line to get help. Git will print a short overview of the call syntax as well as the most important options for you. git [command] -h The second one is having a look at the manpages themselves. git help [command] Git Prompt for bash There [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Getting Help</h2>
+<p>There are basically two ways on the command line to get help.<br />
+Git will print a short overview of the call syntax as well as the most important options for you.</p>
+<table>
+<tbody>
+<tr>
+<td><code>git [command] -h</code></td>
+</tr>
+</tbody>
+</table>
+<p>The second one is having a look at the manpages themselves.</p>
+<table>
+<tbody>
+<tr>
+<td><code>git help [command]</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Git Prompt for bash</h2>
+<p>There are many available. I like this one in particular. You have to use Homebrew to install this.</p>
+<table>
+<tbody>
+<tr>
+<td><code>brew install bash-git-prompt</code></td>
+</tr>
+</tbody>
+</table>
+<p>After installing bash-git-prompt, copy following in the .bash_profile. <a href="https://github.com/magicmonty/bash-git-prompt">Refer</a></p>
+<table>
+<tbody>
+<tr>
+<td><code># Configure GIT BASH PROMPT<br />
+GIT_PROMPT_ONLY_IN_REPO=1<br />
+source ~/.bash-git-prompt/gitprompt.sh<br />
+</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Git Autocompletion for bash</h2>
+<p>If you used homebrew to install Git, simply add the following to your ~/.bash_profile:</p>
+<table>
+<tbody>
+<tr>
+<td><code>source `brew --prefix git`/etc/bash_completion.d/git-completion.bash</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Git Ignore</h2>
+<p>Create the file ~/.gitignore as shown below to remove the files that are almost always ignored in all git repositories.</p>
+<table>
+<tbody>
+<tr>
+<td><code>.DS_Store<br />
+Desktop.ini<br />
+._*<br />
+Thumbs.db<br />
+.Spotlight-V100<br />
+.Trashes<br />
+*.pyc<br />
+*.out</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Git Config</h2>
+<p>In here, you can store all the global Git configuration settings. The .gitconfig file uses the INI file format to store settings, but you can also set (and get) all values by using git config. The most basic settings you should do are your name and eMail, both of which are included in every commit you make:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global user.name "Vijay Patil"<br />
+git config --global user.email "vijay.patil@patilvijayg.com"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Over time, you will accumulate your own set of configs that tweak Git to your liking. Here are a few of my settings that I find very useful:</p>
+<p>Allow all Git commands to use colored output, if possible</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global color.ui auto</code></td>
+</tr>
+</tbody>
+</table>
+<p>Disable the advice shown by Git when you attempt to push something that’s not fast forward-able</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global advice.pushNonFastForward false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Disable “how to stage/unstage/add” hints given by git status:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global advice.statusHints false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Tell Git which whitespace problems it should recognize, namely any whitespace at the end of a line, as well as mixed spaces and tabs:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global core.whitespace trailing-space,space-before-tab</code></td>
+</tr>
+</tbody>
+</table>
+<p>See the man page for more possible options on this.</p>
+<p>Allow git diff to do basic rename and copy detection:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global diff.renames copies</code></td>
+</tr>
+</tbody>
+</table>
+<p>Tell git diff to use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global diff.mnemonicprefix true</code></td>
+</tr>
+</tbody>
+</table>
+<p>When branching off a remote branch, automatically let the local branch track the remote branch:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global branch.autosetupmerge true</code></td>
+</tr>
+</tbody>
+</table>
+<p>When pushing without giving a refspec, push the current branch to its upstream branch. See the git config man page for more possible options.</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global push.default tracking</code></td>
+</tr>
+</tbody>
+</table>
+<p>Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on.</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global rerere.enabled true</code></td>
+</tr>
+</tbody>
+</table>
+<p>You may also want to investigate the rerere.autoupdate setting.</p>
+<p>Always show a diffstat at the end of a merge:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global merge.stat true</code></td>
+</tr>
+</tbody>
+</table>
+<p>Now, you’ll notice that for each and every git config I used the &#8211;global option. The reason for that is that Git not only looks at your global gitconfig (located at ~/.gitconfig), but also a repository-specific config (.git/config). So you can customize all these settings for each of your repository to your liking, just run the git config command in your repository without the &#8211;global flag.</p>
+<h2>Git Mergetool</h2>
+<p>You can set up any merge tool in git to handle conflicts.After searching around it seems that kdiff3 is one of the best 3-way merge tools out there. Download and install kdiff3.</p>
+<p>Either add this to your gitconfig:</p>
+<table>
+<tbody>
+<tr>
+<td><code>[merge]<br />
+tool = kdiff3<br />
+[mergetool "kdiff3"]<br />
+cmd = \"C:\\\\Program Files (x86)\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED</code></td>
+</tr>
+</tbody>
+</table>
+<p>Or run These at the command line:</p>
+<table>
+<tbody>
+<tr>
+<td><code>git config --global merge.tool kdiff3<br />
+git config --global mergetool.kdiff3.cmd '"C:\\Program Files (x86)\\KDiff3\\kdiff3" $BASE $LOCAL $REMOTE -o $MERGED'</code></td>
+</tr>
+</tbody>
+</table>
+<p>Now you will be able to resolve your conflicts the command line via</p>
+<table>
+<tbody>
+<tr>
+<td><code>git mergetool</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Git Workflow</h2>
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a><br />
+Please refer to this blog to know more about <a href="http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/">GIT Procedures and Workflow</a></p>
+<h2 id="UsefulGitTricks-HowtoCleanupRemote/LocalBranches">How to Cleanup Remote/Local Branches</h2>
+<p>This first command will remove any references to a remote branch in your local repository.</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_392473" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">git fetch --prune </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>This second command will find all local branches that have been merged into a branch (in this case origin/master) and remove them.</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_628247" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">git branch --merged origin/master | grep -v master | xargs git branch -d</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>This final command can be used to quickly delete all branches that have been merged with master. (i.e to clean up branches after a release is complete, please don&#8217;t try this unless you understand <em>exactly</em> what you are doing)</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_228102" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">git branch --remote --merged origin/master | grep -v origin/master | sed </code><code class="java string">'s/origin\///'</code> <code class="java plain">| xargs -n </code><code class="java value">1</code> <code class="java plain">git push --delete origin</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="UsefulGitTricks-HowToDetermineWhatRemoteBranchesYouAreTracking">How To Determine What Remote Branches You Are Tracking</h2>
+<p>If you want to know what branches are on the remote, you can either look in Stash or you can use this command:</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_844619" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code>$ git remote show origin</code><code class="java spaces"> </code></div>
+<div class="line number3 index2 alt2"><code class="java plain">* remote origin</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">  </code><code class="java plain">Fetch URL: ssh:</code><code class="java comments">//git@olaxtw-arch04:7999/DEALER/app.git</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">  </code><code class="java plain">Push  URL: ssh:</code><code class="java comments">//git@olaxtw-arch04:7999/DEALER/app.git</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">  </code><code class="java plain">HEAD branch: develop</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">  </code><code class="java plain">Remote branches:</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">    </code><code class="java plain">NETAPP-</code><code class="java value">761</code>             <code class="java plain">tracked</code></div>
+<div class="line number19 index18 alt2"><code class="java spaces">    </code><code class="java plain">NETPT1388Rectification tracked</code></div>
+<div class="line number20 index19 alt1"><code class="java spaces">    </code><code class="java plain">develop                tracked</code></div>
+<div class="line number21 index20 alt2"><code class="java spaces">    </code><code class="java plain">master                 tracked</code></div>
+<div class="line number22 index21 alt1"><code class="java spaces">    </code><code class="java plain">tcserver               tracked</code></div>
+<div class="line number23 index22 alt2"><code class="java spaces">  </code><code class="java plain">Local branches configured </code><code class="java keyword">for</code> <code class="java string">'git pull'</code><code class="java plain">:</code></div>
+<div class="line number24 index23 alt1"><code class="java spaces">    </code><code class="java plain">NETPT-</code><code class="java value">1622</code>             <code class="java plain">merges with remote NETPT-</code><code class="java value">1622</code></div>
+<div class="line number25 index24 alt2"><code class="java spaces">    </code><code class="java plain">NETPT1388Rectification merges with remote NETPT1388Rectification</code></div>
+<div class="line number26 index25 alt1"><code class="java spaces">    </code><code class="java plain">develop                merges with remote develop</code></div>
+<div class="line number27 index26 alt2"><code class="java spaces">    </code><code class="java plain">master                 merges with remote master</code></div>
+<div class="line number28 index27 alt1"><code class="java spaces">    </code><code class="java plain">tcserver               merges with remote tcserver</code></div>
+<div class="line number29 index28 alt2"><code class="java spaces">  </code><code class="java plain">Local refs configured </code><code class="java keyword">for</code> <code class="java string">'git push'</code><code class="java plain">:</code></div>
+<div class="line number30 index29 alt1"><code class="java spaces">    </code><code class="java plain">NETPT1388Rectification pushes to NETPT1388Rectification (up to date)</code></div>
+<div class="line number31 index30 alt2"><code class="java spaces">    </code><code class="java plain">develop                pushes to develop                (up to date)</code></div>
+<div class="line number32 index31 alt1"><code class="java spaces">    </code><code class="java plain">master                 pushes to master                 (up to date)</code></div>
+<div class="line number33 index32 alt2"><code class="java spaces">    </code><code class="java plain">tcserver               pushes to tcserver               (up to date)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="UsefulGitTricks-HowtoCreateAPatchFileforCruciblefromGitBash">How to Change the Url for Push/Pull</h2>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_862769" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">$ git remote set-url origin URL</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="UsefulGitTricks-HowtoViewHistoryontheCommandLine">How to View History on the Command Line</h2>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_483788" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain"># View the complete repository history</code></div>
+<div class="line number2 index1 alt1"><code class="java plain">$ git log --graph --decorate --all</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces"> </code></div>
+<div class="line number4 index3 alt1"><code class="java plain"># View the complete repository history </code><code class="java keyword">while</code> <code class="java plain">only showing the first line of the commit message</code></div>
+<div class="line number5 index4 alt2"><code class="java plain">$ git log --graph --oneline --decorate --all </code></div>
+<div class="line number6 index5 alt1"><code class="java spaces"> </code></div>
+<div class="line number7 index6 alt2"><code class="java plain"># Display only the important branching information (where code branches and merges are)</code></div>
+<div class="line number8 index7 alt1"><code class="java plain">$ git log --graph --oneline --decorate --all --simplify-by-decoration</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="UsefulGitTricks-HowtoAliasCommands">How to Alias Commands</h2>
+<p>Tired of typing very long git commands like git log &#8211;graph &#8211;oneline &#8211;decorate &#8211;all &#8211;simplify-by-decoration? Use the alias functionality to add a new shortcut command.</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_111623" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">$ git config --global alias.ls </code><code class="java string">'log --graph --oneline --decorate --all --simplify-by-decoration'</code></div>
+<div class="line number2 index1 alt1"><code class="java plain">$ git ls</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces"> </code></div>
+<div class="line number4 index3 alt1"><code class="java plain">* 919b1af (HEAD, origin/fix-broken-facade, fix-broken-facade) Fix broken facade</code></div>
+<div class="line number5 index4 alt2"><code class="java plain">*   137ff7e (origin/develop, origin/HEAD, develop) Merge pull request #</code><code class="java value">428</code> <code class="java plain">in DEALER/app from NETPT-</code><code class="java value">4416</code> <code class="java plain">to develop</code></div>
+<div class="line number6 index5 alt1"><code class="java plain">|\  </code></div>
+<div class="line number7 index6 alt2"><code class="java plain">| * dbbead8 Fix </code><code class="java keyword">for</code> <code class="java plain">the expiry date which was being set as the last date of current month.</code></div>
+<div class="line number8 index7 alt1"><code class="java plain">|/  </code></div>
+<div class="line number9 index8 alt2"><code class="java plain">*   da52f8d Merge pull request #</code><code class="java value">418</code> <code class="java plain">in DEALER/app from fix-broken-tests to develop</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="UsefulGitTricks-Howtoundolocaleun-stagedchanges">How to undo local un-staged changes</h2>
+<p><span style="color: #000000;">This is equivalent to revert in SVN</span></p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div id="highlighter_296494" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">$ git checkout -- &lt;&lt;path to the file&gt;&gt;</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Git workflow and procedures</title>
+		<link>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/#comments</comments>
+		<pubDate>Sun, 20 Sep 2015 16:23:06 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[GIT]]></category>
+		<category><![CDATA[git develop]]></category>
+		<category><![CDATA[git master]]></category>
+		<category><![CDATA[git workflow]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=218</guid>
+		<description><![CDATA[Git Workflow Branches develop Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server. It is up to the scrum team/project team whether or not the develop branch is locked down. It may be appropriate [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Git Workflow</h2>
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a></p>
+<h3>Branches</h3>
+<table>
+<tbody>
+<tr>
+<td><strong>develop</strong></td>
+<td>Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server.  It is up to the scrum team/project team whether or not the develop branch is locked down.  It may be appropriate for a limited number of developers to have permissions to merge to develop if you wish to control what is available for integration testing.</td>
+</tr>
+<tr>
+<td><strong>master</strong></td>
+<td>Master should match the code that is deployed to production or on its way to production.  This branch is locked down and only Gatekeepers can merge to master.</td>
+</tr>
+<tr>
+<td><strong>feature/NET&#8230;.</strong></td>
+<td>A feature branch should map back to a ticket. This branch will contain all the changes required to implement the functionality defined in the ticket. The name be – feature/<JIRA ticket>&#8211;<optional description>&#8211;<optional developer name>. It is better to commit to this branch as soon as a unit of development is completed. </td>
+</tr>
+<tr>
+<td><strong>release/N.N.x</strong></td>
+<td>This branch is created when you want to do a release to production.</td>
+</tr>
+<tr>
+<td><strong>hotfix/N.N.x</strong></td>
+<td>This branch is created when you need to fix a production issue and is the only branch to be created off of master.</td>
+</tr>
+</tbody>
+</table>
+<h3>General procedures to implement a code change</h3>
+<ol>
+<li>Developers starting a new ticket should create a feature branch in each repository that will require a code change.  The branch should following the naming convention of feature/<JIRA ticket>&#8211;<optional description>&#8211;<optional developer name></li>
+<ol>
+<li>So if the JIRA ticket is NETPT-1000 the branch name would be feature/NETPT-1000-Implement_foo.  Stash does not support spaces in branch names so you must use underscore.</li>
+<li>If necessary adding the developer name to the end of the branch name can allow for multiple users working of a feature and still have separate branches. This does not appear to be a common use case to date.</li>
+</ol>
+<li>Once the development work has been completed and tested locally and the branch pushed to Stash, the developer will create a pull request in stash from the feature branch to the develop branch. Make sure that the description of your pull request contains a reference to the JIRA ticket (for instance NETPT-XXX is sufficient for the linkage).   Once the pull request has been approved and all changes made to the feature branch as required, then the pull request can be closed by selecting the &#8220;Merge&#8221; button in stash.  The code is now in the develop branch and development testing can begin in the shared development environment.</li>
+<li>Once the development is complete, then the release branch can be created. The release branch is created from the develop branch and will include all commits to develop up to the branch point.</li>
+<li>Then, a pull request needs to be created in stash from the release branch to the master branch. Once this pull request has been approved and the other release procedures followed, this pull request will be merged into master, but only by a Gatekeeper.</li>
+</ol>
+<h3>What is a pull request?</h3>
+<ol>
+<li>Pull requests in Stash provide the team with a quick and easy way to review changes made on a branch, discuss those changes, and make further modification before the branch is merged back to develop or master.</li>
+<li>Here is a link to documentation on how to use pull requests from Atlassian https://confluence.atlassian.com/display/STASH/Using+pull+requests+in+Stash</li>
+<li>If you have JIRA integration in stash, when you mention a JIRA issue key in Stash, for example in a pull request description or a comment, the key gets automatically linked.</li>
+</ol>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>REST Response Status Codes</title>
+		<link>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/#comments</comments>
+		<pubDate>Wed, 26 Aug 2015 14:58:10 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[REST]]></category>
+		<category><![CDATA[RESTFul]]></category>
+		<category><![CDATA[status code]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=162</guid>
+		<description><![CDATA[SUCCESSFUL STATUS CODES (2XX) Code Meaning Description Examples 200 OK The request was successful GET /customers/&#60;customerid&#62; successfully found a customer and returned it in the response body. 201 Created The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource. POST /customers successfully created [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>SUCCESSFUL STATUS CODES (2XX)</strong></p>
+<table class="confluenceTable">
+<tbody>
+<tr>
+<th class="confluenceTh">Code</th>
+<th class="confluenceTh">Meaning</th>
+<th class="confluenceTh">Description</th>
+<th class="confluenceTh" colspan="1">Examples</th>
+</tr>
+<tr>
+<td class="confluenceTd">200</td>
+<td class="confluenceTd">OK</td>
+<td class="confluenceTd">The request was successful</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>GET /customers/&lt;customerid&gt; successfully found a customer and returned it in the response body.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd">201</td>
+<td class="confluenceTd">Created</td>
+<td class="confluenceTd">The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource.</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>POST /customers successfully created a customer and <em>may</em> return it in the response body, but has to return the Location header.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1">202</td>
+<td class="confluenceTd" colspan="1">Accepted</td>
+<td class="confluenceTd" colspan="1">The request was accepted. This can be used for asynchronous actions when there is no valid response and no way to check on the status of the request later.</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>POST /sendEmail successfully forwarded the SMTP message to the SMTP server, but there is no way of knowing if the message was sent.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd">204</td>
+<td class="confluenceTd">No content</td>
+<td class="confluenceTd">The request was successful and there is no response body. (An operation that was successful but does not return a response body.)</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>PUT /customers/&lt;customerid&gt; successfully updated a customer, but did NOT return it in the response body.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1">205</td>
+<td class="confluenceTd" colspan="1">Reset Content</td>
+<td class="confluenceTd" colspan="1">Often used with delete methods or the action pattern to allow the caller to know they need to reset the view by calling GET</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>DELETE /customers/&lt;customerid&gt; successfully deleted a customer, returns no response body, and we want the client to invalid it&#8217;s cached version of that customer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CLIENT ERROR STATUS CODES (4XX)</strong></p>
+<p>AKA BusinessExceptions</p>
+<table class="confluenceTable">
+<tbody>
+<tr>
+<th class="confluenceTh">Code</th>
+<th class="confluenceTh" colspan="1">Meaning</th>
+<th class="confluenceTh">Description</th>
+<th class="confluenceTh" colspan="1">Examples</th>
+</tr>
+<tr>
+<td class="confluenceTd"><span style="color: #000000;">400</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">Bad Request </span></td>
+<td class="confluenceTd"><span style="color: #000000;">The request was invalid or could not be understood by the server. Resubmitting the request will likely result in the same error.</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>GET/DELETE /customers?&lt;required query param or header&gt; that is missing.</li>
+<li>POST /customers with a missing/invalid parameter in the request body.</li>
+<li>PUT /customers/&lt;customerid&gt; where the customer was found but missing/invalid parameter in the request body.a</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd"><span style="color: #000000;">401</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">Unauthorized </span></td>
+<td class="confluenceTd"><span style="color: #000000;">Similar to 403, but specifically for use when authentication has failed or has not yet been provided</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>Any request where authentication headers were missing or not valid.<br />
+(i.e. Calling a login operation with invalid credentials.)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd"><span style="color: #000000;">403</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">Forbidden </span></td>
+<td class="confluenceTd"><span style="color: #000000;">The login is attempting to perform an action it does not have privileges to access. Verify your login credentials are for the appropriate account.</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>Any request where the request is not authorized. The user is authenticated but does not have access to that resource. (i.e. a user doesn&#8217;t have permissions to complete this operation.)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd"><span style="color: #000000;">404</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">Not Found </span></td>
+<td class="confluenceTd"><span style="color: #000000;">The resource was not found with the given identifier. The response body will explain which resource was not found.</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>GET/PUT/DELETE /customers/&lt;customerid&gt; where the customer was not found.</li>
+<li>GET/PUT/DELETE /customers/&lt;customerid&gt;/addresses/&lt;addressesid&gt; where either the customer was not found or the the address was not found for that customer.</li>
+<li>POST /customers/&lt;customerid&gt;/addresses where the customer was not found.</li>
+<li>DELETE /customers/&lt;customerid&gt; being called a 2nd time.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1">405</td>
+<td class="confluenceTd" colspan="1">Method Not Allowed</td>
+<td class="confluenceTd" colspan="1">Used to indicate that the given VERB is not implemented or acceptable. This status code has expectations that an Allow header will be present on the 405 response that will list all available methods. Most RESTful frameworks handle this by default.</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>Our frameworks should handle this for us, when we don&#8217;t implement a verb for a certain path.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1">406</td>
+<td class="confluenceTd" colspan="1">Not Acceptable</td>
+<td class="confluenceTd" colspan="1">The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.</p>
+<p>Unless it was a HEAD request, the response SHOULD include an entity containing a list of available entity characteristics and location(s) from which the user or user agent can choose the one most appropriate. Most RESTful frameworks handle this by default.</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>Our frameworks should handle this for us, when we don&#8217;t implement a certain content type for a certain path that is being requested in the request accept header.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1">409</td>
+<td class="confluenceTd" colspan="1">Conflict</td>
+<td class="confluenceTd" colspan="1">An indication that the object modification being made is not acceptable, usually due to an optimistic locking mechanism or some other standard constraint.  The state of the resource isn&#8217;t compatible with the request.</td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>PUT /customers/&lt;customerid&gt; with a version param in the request body, where this version is out of date with what&#8217;s in the database.</li>
+<li>POST /activationcode/&lt;codeid&gt; to activate a code that has already been activated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SERVER ERROR STATUS CODES (5XX)</strong></p>
+<p>AKA ServiceExceptions/SystemExceptions &#8211; Should not be thrown from your code. Container throws these exceptions. You may catch these cases and handle them.</p>
+<table class="confluenceTable">
+<tbody>
+<tr>
+<th class="confluenceTh">Code</th>
+<th class="confluenceTh">Meaning</th>
+<th class="confluenceTh">Description</th>
+<th class="confluenceTh" colspan="1">Examples</th>
+</tr>
+<tr>
+<td class="confluenceTd"><span style="color: #000000;">500</span></td>
+<td class="confluenceTd"><span style="color: #000000;">Internal Server Error</span></td>
+<td class="confluenceTd"><span style="color: #000000;">The server encountered an error while processing your request and failed.</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>When you catch a ServiceException or SystemException.  Any unexpected failure of the service.  Any exception thrown out of a REST method that isn&#8217;t handled will be converted to this.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">503</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">Service Unavailable</span></td>
+<td class="confluenceTd" colspan="1"><span style="color: #000000;">The service is temporarily unavailable. Please try the request again.</span></td>
+<td class="confluenceTd" colspan="1">
+<ul>
+<li>Should be handled by web or app server.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Custom codes (ones not already used by the specs) should fall within these guidelines, but are not recommended</strong></p>
+<p>200–299 as success,<br />
+400–499 as client request errors,<br />
+500–599 as server errors</p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Swagger UI for your REST APIs using Springfox (Swagger spec 2.0) and Spring Boot</title>
+		<link>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/#comments</comments>
+		<pubDate>Wed, 01 Jul 2015 00:45:23 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[REST]]></category>
+		<category><![CDATA[Spring]]></category>
+		<category><![CDATA[Swagger]]></category>
+		<category><![CDATA[Testing]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=138</guid>
+		<description><![CDATA[In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle). Step 1: Add Swagger dependencies in your pom.xml pom.xml &#60;properties&#62; &#60;springfox.version&#62;2.1.2&#60;/springfox.version&#62; &#60;/properties&#62; &#60;dependency&#62; &#60;!-- API Documentation Generation --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger2&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; &#60;dependency&#62; &#60;!-- API Documentation Web UI --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger-ui&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; Step 2: Use [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle).</p>
+<p style="text-align: justify;"><strong>Step 1: Add Swagger dependencies in your pom.xml</strong></p>
+<p style="text-align: justify;">pom.xml</p>
+<pre><code>&lt;properties&gt;
+     &lt;springfox.version&gt;2.1.2&lt;/springfox.version&gt;
+&lt;/properties&gt;
+&lt;dependency&gt;
+     &lt;!-- API Documentation Generation --&gt;
+     &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+     &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+     &lt;version&gt;${springfox.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+     &lt;!-- API Documentation Web UI --&gt;
+     &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+     &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+     &lt;version&gt;${springfox.version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p style="text-align: justify;"><strong>Step 2: Use EnableSwagger2 Annotation for Spring Boot Application</strong></p>
+<pre><code>@SpringBootApplication
+@EnableSwagger2
+@EnableAspectJAutoProxy
+@Import(value = { Configuration.class })
+public class ABCServiceApplication extends SpringBootServletInitializer {
+     public static void main(String... args) {
+          SpringApplication.run(ABCServiceApplication.class, args);
+     }
+     
+     @Override
+     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+          application.profiles(Invironment.getEnvironment());
+          return application.sources(ABCServiceApplication.class);
+     }
+
+     @Bean
+     public Filter swaggerCorsFilter() {
+          return new Filter() {
+               @Override
+	       public void init(FilterConfig filterConfig) throws ServletException {}
+      
+               @Override
+	       public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
+               throws IOException, ServletException {
+                    HttpServletRequest httpRequest = (HttpServletRequest) request;
+                    String contextPath = httpRequest.getLocalName() + httpRequest.getRequestURI();
+
+                    HttpServletResponse httpResponse = (HttpServletResponse) response;
+                    httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+               }
+       
+               @Override
+               public void destroy() {}
+          };
+     }
+}
+</code></pre>
+<p style="text-align: justify;">Now your web app should automatically pick up the necessary files and show the UI which can be used for REST API testing. <code></code></p>
+<pre>http://HOST:PORT/yourApp/swagger-ui.html
+</pre>
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/Swagger-UI.png"><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/Swagger-UI.png" alt="Swagger UI" width="1954" height="764" class="alignnone size-full wp-image-147" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Integrate Thymeleaf with Spring</title>
+		<link>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/#comments</comments>
+		<pubDate>Fri, 22 Aug 2014 06:04:29 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[Spring]]></category>
+		<category><![CDATA[Thymeleaf]]></category>
+		<category><![CDATA[Spring MVC]]></category>
+		<category><![CDATA[SpringTemplateEngine]]></category>
+		<category><![CDATA[TemplateResolver]]></category>
+		<category><![CDATA[ThymeleafViewResolver]]></category>
+
+		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=55</guid>
+		<description><![CDATA[Thymeleaf is a Java library. It is an XML / XHTML / HTML5 template engine (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the view layer of web applications, but it can process any XML file even in offline environments. It provides an optional module for [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Thymeleaf is a Java library. It is an <b>XML / XHTML / HTML5 template engine</b> (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the <i>view layer</i> of web applications, but it can process any XML file even in offline environments.</p>
+<p style="text-align: justify;">It provides an optional module for integration with <b>Spring MVC</b>, so that you can use it as a complete substitute of JSP in your applications made with this technology, even with HTML5.</p>
+<p style="text-align: justify;">Here is the step-by-step guide to integrate Thymeleaf with Spring.</p>
+<p style="text-align: justify;"><strong>Step 1: Add Thymeleaf dependencies in your pom.xml</strong></p>
+<p style="text-align: justify;">pom.xml</p>
+<pre><code>&lt;properties&gt;
+     &lt;thymeleaf.version&gt;2.0.16&lt;/thymeleaf.version&gt;
+     &lt;thymeleaf.layout.version&gt;1.0.6&lt;/thymeleaf.layout.version&gt;
+     &lt;thymeleaf.conditional.version&gt;2.0.0&lt;/thymeleaf.conditional.version&gt;
+     &lt;thymeleaf.security.version&gt;2.0.0&lt;/thymeleaf.security.version&gt;
+&lt;/properties&gt;
+&lt;!-- Thymeleaf --&gt;
+&lt;dependency&gt;
+     &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+     &lt;artifactId&gt;thymeleaf&lt;/artifactId&gt;
+     &lt;version&gt;${thymeleaf.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+     &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+     &lt;artifactId&gt;thymeleaf-spring3&lt;/artifactId&gt;
+     &lt;version&gt;${thymeleaf.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+     &lt;groupId&gt;nz.net.ultraq.web.thymeleaf&lt;/groupId&gt;
+     &lt;artifactId&gt;thymeleaf-layout-dialect&lt;/artifactId&gt;
+     &lt;version&gt;${thymeleaf.layout.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+     &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt;
+     &lt;artifactId&gt;thymeleaf-extras-conditionalcomments&lt;/artifactId&gt;
+     &lt;version&gt;${thymeleaf.conditional.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+     &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt;
+     &lt;artifactId&gt;thymeleaf-extras-springsecurity3&lt;/artifactId&gt;
+     &lt;version&gt;${thymeleaf.security.version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p style="text-align: justify;"><strong>Step 2: Configure at least one template resolver and set the template mode to HTML5 in your springMVC-context.xml.</strong></p>
+<p style="text-align: justify;">A template resolver resolves templates from the file system.</p>
+<p style="text-align: justify;">springMVC-context.xml</p>
+<pre><code>&lt;bean id="templateResolver"
+     class="org.thymeleaf.templateresolver.ServletContextTemplateResolver"&gt;
+     &lt;property name="prefix" value="/WEB-INF/templates/" /&gt;
+     &lt;property name="suffix" value=".html" /&gt;
+     &lt;property name="cacheable" value="false" /&gt;
+     &lt;property name="templateMode" value="HTML5" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p style="text-align: justify;"><strong>Step 3: Configure at least one template engine in your springMVC-context.xml.</strong></p>
+<p style="text-align: justify;">A template engine renders a template into HTML5 string.</p>
+<p style="text-align: justify;">springMVC-context.xml</p>
+<pre><code>&lt;bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine"&gt;
+     &lt;property name="templateResolver" ref="templateResolver" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p style="text-align: justify;"><strong>Step 4: (Spring MVC Only) Configure a View Resolver &#8211; the view resolver is what Spring controllers use to render Thymeleaf views.</strong></p>
+<p style="text-align: justify;">The ViewResolver is the class that tells spring where to find a view for a controller.</p>
+<p style="text-align: justify;">springMVC-context.xml</p>
+<pre><code>&lt;bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver"&gt;
+     &lt;property name="templateEngine" ref="templateEngine" /&gt;
+&lt;/bean&gt;</code></pre>
+<p><strong>Example Usage</strong></p>
+<p style="text-align: justify;">HomeController.java</p>
+<pre><code>@RequestMapping(value = "/", method = RequestMethod.GET)
+public String redirectToHome(Model model) {
+     return "redirect:/home";
+}
+
+@RequestMapping(value = "/home", method = RequestMethod.GET)
+public String home(Model model) {
+     logger.info("Welcome home!");
+     model.addAttribute("message","Welcome home!!");
+     return "home";
+}
+</code></pre>
+<p style="text-align: justify;">/WEB-INF/templates/home.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"&gt;
+&lt;head&gt;
+     &lt;meta charset="UTF-8"/&gt;
+     &lt;title&gt;VIJAY PATIL&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+     &lt;span th:text="${message}"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p style="text-align: justify;">URL</p>
+<pre><code>http://example.com/testApplication/
+</code></pre>
+<p style="text-align: justify;">Here HomeController uses ThymeleafViewResolver to resolve a view home. A call made using the above URL will map to the method redirectToHome method in the controller which maps to the home method. Method home adds an attribute message to the model and returns a string &#8216;home&#8217;. A ServletContextTemplateResolver resolves string &#8216;home&#8217; to &#8216;/WEB-INF/templates/home.html&#8217; which then is used by SpringTemplateEngine to render view.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>jQuery Plugin for Static Bootstrap Progress Bar?</title>
+		<link>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/#comments</comments>
+		<pubDate>Sun, 22 Jun 2014 03:41:10 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[bootstrap]]></category>
+		<category><![CDATA[bootstrap progress bar]]></category>
+		<category><![CDATA[jquery]]></category>
+
+		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=20</guid>
+		<description><![CDATA[Bootstrap Provides variety of Static Progress Bars. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar &#60;div class="container"&#62; &#60;div id="myProgressbar1"&#62; &#60;div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"&#62; &#60;span/&#62; &#60;/div&#62; &#60;/div&#62; &#60;/div&#62; The jQuery Plugin to manipulate the progress bar- !function ($) { //Class Definition [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Bootstrap Provides variety of <a href="http://getbootstrap.com/components/#progress" target="_blank">Static Progress Bars</a>. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar</p>
+<pre><code>&lt;div class="container"&gt;
+   &lt;div id="myProgressbar1"&gt;
+      &lt;div role="progressbar" aria-valuenow="0" 
+           aria-valuemin="0" aria-valuemax="100" style="width: 0%"&gt;
+           &lt;span/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>The jQuery Plugin to manipulate the progress bar-</strong></p>
+<pre><code>!function ($) {
+     //Class Definition
+     var Progressbar = function (element) {
+          this.$element = $(element);
+     };
+
+     //Progressbar Update Function
+     Progressbar.prototype.update = function (value) {
+          var $div = this.$element.find('div');
+          var $span = $div.find('span');
+          $div.attr('aria-valuenow', value);
+          $div.css('width', value + '%');
+          $span.text(value + '% Complete');
+     };
+
+     //Progressbar Finish Function
+     Progressbar.prototype.finish = function () {
+          this.update(100);
+     };
+
+     //Progressbar Reset Function
+     Progressbar.prototype.reset = function () {
+          this.update(0);
+     };
+
+     //Plugin Definition
+     $.fn.progressbar = function (option) {
+          return this.each(function () {
+               var progressBar = new Progressbar(this);
+               if (typeof option == 'string') progressBar[option]();
+               if (typeof option == 'number') progressBar.update(option);
+          });
+     };
+}(window.jQuery);
+</code></pre>
+<p><strong>The use case &#8211;</strong></p>
+<p>Progress from 0% to 40%</p>
+<pre><code>$('#myProgressbar1').progressbar(40);
+</code></pre>
+<p>Progress to 100%</p>
+<pre><code>$('#myProgressbar1').progressbar('finish');
+</code></pre>
+<p>Reset to 0%</p>
+<pre><code>$('#myProgressbar1').progressbar('reset');
+</code></pre>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/feed/</wfw:commentRss>
+		<slash:comments>27</slash:comments>
+		</item>
+		<item>
+		<title>jQuery best practices</title>
+		<link>http://patilvijayg.synology.me/wordpress/jquery-best-practices/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/jquery-best-practices/#comments</comments>
+		<pubDate>Mon, 07 Apr 2014 16:27:19 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Ajax]]></category>
+		<category><![CDATA[Chaining]]></category>
+		<category><![CDATA[DOM]]></category>
+		<category><![CDATA[Events]]></category>
+		<category><![CDATA[jquery]]></category>
+		<category><![CDATA[Selectors]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.com/wordpress/?p=105</guid>
+		<description><![CDATA[Including jQuery and Plugin libraries Use Google CDN &#60;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&#62;&#60;/script&#62; &#60;script&#62;window.jQuery &#124;&#124; document.write('&#60;script src="js/jquery-1.11.1.min.js" type="text/javascript"&#62;&#60;\/script&#62;')&#60;/script&#62; Implement a fallback to your locally hosted library of same version as shown above. Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above. If possible, keep all your javascript and jquery includes at the bottom of your page. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Including jQuery and Plugin libraries</h2>
+<ul>
+<li>Use Google CDN</li>
+</ul>
+<pre><code>&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></pre>
+<ul>
+<li>Implement a fallback to your locally hosted library of same version as shown above.</li>
+<li>Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above.</li>
+<li>If possible, keep all your javascript and jquery includes at the bottom of your page.</li>
+<li>Do not use jQuery version 2.x if you support Internet Explorer 6/7/8.</li>
+<li>For new web-apps, if you do not have any plugin compatibility issue, it&#8217;s highly recommended to use the latest jQuery version.</li>
+<li>When loading jQuery from CDN&#8217;s always specify the complete version number you want to load. Example: 1.11.0 as opposed to 1.11 or just 1.</li>
+<li>Do Not load multiple jQuery versions.</li>
+<li>If you are using other libraries like Prototype, MooTools, Zepto etc. that uses $ sign as well, try not to use $ for calling jQuery functions and instead use jQuery simply. You can return control of $ back to other library with a call to $.noConflict().</li>
+<li>For advanced browser feature detection, use <a href="http://modernizr.com/" target="_blank">Modernizr</a></li>
+</ul>
+<h2>jQuery Variables</h2>
+<ul>
+<li>All variables that are used to store/cache jQuery objects should have a name prefixed with a $.</li>
+<li>Always cache your jQuery selector returned objects in variables for reuse.</li>
+</ul>
+<pre><code>var $myDiv = $("#myDiv");
+$myDiv.click(function(){...});</code></pre>
+<ul>
+<li>Use camel case for naming variables.</li>
+</ul>
+<h2>Selectors</h2>
+<ul>
+<li>Use ID selector whenever possible. It is the fastest because they are handled using document.getElementById().</li>
+</ul>
+<pre><code>var $products = $(".products"); // BAD, this'll scan all DOM elements for "products" class.
+var $products = $("div.products"); // GOOD, this'll only scan DIV elements for "products" class.
+</code></pre>
+<ul>
+<li>Use find for Id-&gt;Child nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine. <a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>var $productIds = $("#products div.id"); // BAD, a nested query for Sizzle selector engine
+var $productIds = $("#products").find("div.id"); // GOOD, #products is already selected by document.getElementById() so only div.id needs to go through Sizzle selector engine
+</code></pre>
+<ul>
+<li>Be specific on the right-hand side of your selector, and less specific on the left.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>// Unoptimized
+$("div.data .gonzalez");
+// Optimized
+$(".data td.gonzalez");
+</code></pre>
+<ul>
+<li>Avoid Excessive Specificity.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>$(".data table.attendees td.gonzalez");
+
+// Better: Drop the middle if possible.
+$(".data td.gonzalez");
+</code></pre>
+<ul>
+<li>Give your Selectors a Context.</li>
+</ul>
+<pre><code>$('.class'); // SLOWER because it has to traverse the whole DOM for .class
+$('.class', '#class-container'); // FASTER because now it only looks under class-container.
+</code></pre>
+<ul>
+<li>Avoid Universal Selectors.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>$('div.container &gt; *'); // BAD
+$('div.container').children(); // BETTER
+</code></pre>
+<ul>
+<li>Avoid Implied Universal Selectors. When you leave off the selector, the universal selector (*) is still implied.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>$('div.someclass :radio'); // BAD
+$('div.someclass input:radio'); // GOOD
+</code></pre>
+<ul>
+<li>Don’t Descend Multiple IDs or nest when selecting an ID. ID-only selections are handled using document.getElementById() so don&#8217;t mix them with other selectors.</li>
+</ul>
+<pre><code>$('#outer #inner'); // BAD
+$('div#inner'); // BAD
+$('.outer-container #inner'); // BAD
+$('#inner'); // GOOD, only calls document.getElementById()
+</code></pre>
+<h2>DOM Manipulation</h2>
+<ul>
+<li>Always detach any existing element before manipulation and attach it back after manipulating it. <a href="http://learn.jquery.com/performance/detach-elements-before-work-with-them/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>var $myList = $("#list-container &gt; ul").detach();
+//...a lot of complicated things on $myList
+$myList.appendTo("#list-container");
+</code></pre>
+<ul>
+<li>Use string concatenation or array.join() over .append(). <a href="http://learn.jquery.com/performance/append-outside-loop/" target="_blank">More Info</a>. http://jsperf.com/jquery-append-vs-string-concat</li>
+</ul>
+<pre><code>// BAD
+var $myList = $("#list");
+for(var i = 0; i &lt; 10000; i++){
+$myList.append("&lt;li&gt;"+i+"&lt;/li&gt;");
+}
+
+// GOOD
+var $myList = $("#list");
+var list = "";
+for(var i = 0; i &lt; 10000; i++){
+list += "&lt;li&gt;"+i+"&lt;/li&gt;";
+}
+$myList.html(list);
+
+// EVEN FASTER
+var array = [];
+for(var i = 0; i &lt; 10000; i++){
+array[i] = "&lt;li&gt;"+i+"&lt;/li&gt;";
+}
+$myList.html(array.join(''));
+</code></pre>
+<ul>
+<li>Don’t Act on Absent Elements. <a href="http://learn.jquery.com/performance/dont-act-on-absent-elements/" target="_blank">More Info</a></li>
+</ul>
+<pre><code>// BAD: This runs three functions before it realizes there's nothing in the selection
+$("#nosuchthing").slideUp();
+
+// GOOD
+var $mySelection = $("#nosuchthing");
+if ($mySelection.length) {
+    $mySelection.slideUp();
+}
+</code></pre>
+<h2>Events</h2>
+<ul>
+<li>Use only one Document Ready handler per page. It makes it easier to debug and keep track of the behavior flow.</li>
+<li>Document ready event handler should not be an anonymous function. Anonymous functions are not reusable and you cannot write tests for them.</li>
+</ul>
+<pre><code>$(function(){ ... }); // BAD: You can never reuse or write a test for this function.
+
+// GOOD
+$(initPage); // or $(document).ready(initPage);
+function initPage(){
+	// Page load event where you can initialize values and call other initializers.
+}</code></pre>
+<ul>
+<li>Document ready event handlers should be included from external files and inline javascript should call the ready handle after any initial setup.</li>
+</ul>
+<pre><code>&lt;script src="my-document-ready.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+// Any global variable set-up that might be needed.
+$(document).ready(initPage);
+&lt;/script&gt;</code></pre>
+<ul>
+<li>DO NOT use anonymous functions to attach events. Anonymous functions are not reusable and you cannot write tests for them.</li>
+</ul>
+<pre><code>$("#myLink").on("click", function(){...}); // BAD
+
+// GOOD
+function myLinkClickHandler(){...}
+$("#myLink").on("click", myLinkClickHandler);
+</code></pre>
+<ul>
+<li>DO NOT use behavioral markup in HTML (JavaScript inlining), these are debugging nightmares. Always bind events with jQuery to be consistent so it&#8217;s easier to attach and remove events dynamically.</li>
+</ul>
+<pre><code>&lt;a id="myLink" href="#" onclick="myEventHandler();"&gt;my link&lt;/a&gt; &lt;!-- BAD --&gt;
+$("#myLink").on("click", myEventHandler); // GOOD 
+</code></pre>
+<ul>
+<li>When possible, use custom namespace for events. It&#8217;s easier to unbind the exact event that you attached without affecting other events bound to the DOM element.</li>
+</ul>
+<pre><code>$("#myLink").on("click.mySpecialClick", myEventHandler); // GOOD
+// Later on it's easier to unbind just your click event
+$("#myLink").unbind("click.mySpecialClick");
+</code></pre>
+<h2>Ajax</h2>
+<ul>
+<li>Avoid using .getJson() or .get(), simply use the $.ajax() as that&#8217;s what gets called internally.</li>
+<li>DO NOT use http requests on https sites. Prefer schemaless URLs (leave the protocol http/https out of your URL)</li>
+<li>DO NOT put request parameters in the URL, send them using data object setting.</li>
+</ul>
+<pre><code>// Less readable...
+$.ajax({
+	url: "something.jsp?param1=test1&amp;param2=test2",
+	....
+});
+
+// More readable...
+$.ajax({
+	url: "something.jsp",
+	data: { param1: test1, param2: test2 }
+});
+</code></pre>
+<ul>
+<li>Always specify the dataType setting so it&#8217;s easier to know what kind of data you are working with. (See Ajax Template example below)</li>
+<li>Use Delegated event handlers for attaching events to content loaded using Ajax. Delegated events have the advantage that they can process events from descendant elements that are added to the document at a later time (example Ajax).<a href="http://api.jquery.com/on/#direct-and-delegated-events" target="_blank">More Info</a></li>
+</ul>
+<pre><code>$("#parent-container").on("click", "a", delegatedClickHandlerForAjax);
+</code></pre>
+<ul>
+<li>User Promise Interface:</li>
+</ul>
+<pre><code>$.ajax({ ... }).then(successHandler, failureHandler);
+
+// OR
+var jqxhr = $.ajax({ ... });
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);
+</code></pre>
+<ul>
+<li>Sample Ajax Template:</li>
+</ul>
+<pre><code>var jqxhr = $.ajax({
+    url: url,
+    type: "GET", // default is GET but you can use other verbs based on your needs.
+    cache: true, // default is true, but false for dataType 'script' and 'jsonp', so set it on need basis.
+    data: {}, // add your request parameters in the data object.
+    dataType: "json", // always specify the dataType for future reference
+    jsonp: "callback", // only specify this to match the name of callback parameter your API is expecting for JSONP requests.
+    statusCode: { // if you want to handle specific error codes, use the status code mapping settings.
+        404: handler404,
+		500: handler500
+    }
+});
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);
+</code></pre>
+<h2>Chaining</h2>
+<ul>
+<li>Use chaining as an alternative to variable caching and multiple selector calls.</li>
+</ul>
+<pre><code>$("#myDiv").addClass("error").show();
+</code></pre>
+<ul>
+<li>Whenever the chain grows over 3 links or gets complicated because of event assignment, use appropriate line breaks and indentation to make the code readable.</li>
+</ul>
+<pre><code>$("#myLink")
+	.addClass("bold")
+	.on("click", myClickHandler)
+	.on("mouseover", myMouseOverHandler)
+	.show();
+</code></pre>
+<ul>
+<li>For long chains it is acceptable to cache intermediate objects in a variable.</li>
+</ul>
+<h2>Miscellaneous</h2>
+<ul>
+<li>Use Object literals for parameters.</li>
+</ul>
+<pre><code>$myLink.attr("href", "#").attr("title", "my link").attr("rel", "external"); // BAD
+// GOOD
+$myList.attr({
+    href: "#",
+    title: "my link",
+    rel: "external"
+});
+</code></pre>
+<ul>
+<li>Do not mix CSS with jQuery.</li>
+</ul>
+<pre><code>$("#mydiv").css({'color':red, 'font-weight':'bold'}); // BAD
+.error { color: red; font-weight: bold; } /* GOOD */
+$("#mydiv").addClass("error"); // GOOD
+</code></pre>
+<ul>
+<li>Don’t Use Deprecated Methods. It is important to always keep an eye on deprecated methods for each new version and try avoid using them. <a href="http://api.jquery.com/category/deprecated/" target="_blank">Click here </a>for a list of deprecated methods.</li>
+<li>Combine jQuery with Native JavaScript when needed. See the performance difference for the example given below below: http://jsperf.com/document-getelementbyid-vs-jquery/3</li>
+</ul>
+<pre><code>$("#myId"); // is still little slower than...
+document.getElementById("myId");
+</code></pre>
+<h2>Recommendations</h2>
+<ul>
+<li>If possible, wrap your jQuery code inside a self-executing function and pass all the required global objects (like jQuery, window, document) for unadulterated access. This way you can use the $ sign inside your closure.</li>
+</ul>
+<pre><code>(function($, window, document, undefined){
+    // Here you have access to the original jQuery, window, document objects along with undefined for easy comparison.
+})(jQuery, window, document);
+</code></pre>
+<ul>
+<li>Avoid unnecessary use of jQuery when you can get away by using native methods. A few examples:
+<ol>
+<li>A form with no dynamic information should have a regular submit button, not $(&#8220;#myForm&#8221;).submit();</li>
+<li>document.getElementById(&#8220;myId&#8221;) in favor of $(&#8220;#myId&#8221;)</li>
+<li>el.style.display = &#8216;none&#8217; in favor of $(el).hide()</li>
+<li>el.style.display = &#8221; in favor of $(el).show()</li>
+<li>el.getAttribute(&#8216;tabindex&#8217;) in favor of $(el).attr(&#8216;tabindex&#8217;)</li>
+</ol>
+</li>
+<li>If you are only targeting modern browsers (especially IE9 and above), most of the basic functionality is already built into HTML5, CSS3 and ECMAScript 5/6. A few examples:
+<ol>
+<li>var elements = document.querySelectorAll(selector) in favor of $(selector)</li>
+<li>el.parentNode in favor of $(el).parent()</li>
+<li>getComputedStyle(el)[ruleName] in favor of $(el).css(ruleName)</li>
+<li>Here are a lot more: http://youmightnotneedjquery.com</li>
+</ol>
+</li>
+</ul>
+<h2>Resources</h2>
+<ul>
+<li>jQuery API Docs: http://api.jquery.com/</li>
+<li>Mozilla Developer Network: https://developer.mozilla.org/en-US/docs/Web</li>
+<li>Modern Browser native alternatives to jQuery: http://youmightnotneedjquery.com</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/jquery-best-practices/feed/</wfw:commentRss>
+		<slash:comments>17</slash:comments>
+		</item>
+		<item>
+		<title>HTML5 Forms</title>
+		<link>http://patilvijayg.synology.me/wordpress/html5-forms/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/html5-forms/#comments</comments>
+		<pubDate>Sat, 24 Aug 2013 01:34:59 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[HTML5]]></category>
+		<category><![CDATA[Autocomplete]]></category>
+		<category><![CDATA[Autofocus]]></category>
+		<category><![CDATA[Datalist]]></category>
+		<category><![CDATA[Datetime-local]]></category>
+		<category><![CDATA[Keygen]]></category>
+		<category><![CDATA[Output]]></category>
+		<category><![CDATA[Pattern]]></category>
+		<category><![CDATA[Placeholder]]></category>
+		<category><![CDATA[Required]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.com/wordpress/?p=94</guid>
+		<description><![CDATA[HTML5 provides several new input types: Search The input element with a type attribute whose value is search represents a one line plain text edit control for entering one or more search terms. Example usage of the search input type: &#60;input type="search" /&#62; Email The email input looks just like a regular text input, but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>HTML5 provides several new input types:</h2>
+<h3>Search</h3>
+<p>The input element with a type attribute whose value is <span style="color: #ff0000;">search</span> represents a one line plain text edit control for entering one or more search terms.</p>
+<p>Example usage of the <span style="color: #ff0000;">search</span> input type:</p>
+<pre><code>&lt;input type="search" /&gt;</code></pre>
+<h3>Email</h3>
+<p>The <span style="color: #ff0000;">email</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
+<p>Example usage of the <span style="color: #ff0000;">email</span> input type:</p>
+<pre><code>&lt;input type="email" /&gt;</code></pre>
+<h3>URL</h3>
+<p>The <span style="color: #ff0000;">url</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
+<p>Example usage of the <span style="color: #ff0000;">url</span> input type:</p>
+<pre><code>&lt;input type="url" /&gt;</code></pre>
+<h3>Date</h3>
+<p>The input element with a type attribute whose value is <span style="color: #ff0000;">date</span> represents a control for setting the element&#8217;s value to a string representing a date.</p>
+<p>Example usage of the <span style="color: #ff0000;">date</span> input type:</p>
+<pre><code>&lt;input type="date" /&gt;</code></pre>
+<h3>Tel</h3>
+<p>The <span style="color: #ff0000;">tel</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
+<p>Example usage of the <span style="color: #ff0000;">tel</span> input type:</p>
+<pre><code>&lt;input type="tel" /&gt;</code></pre>
+<h3>Number</h3>
+<p>The input element with a type attribute whose value is <span style="color: #ff0000;">number</span> represents a precise control for setting the elements value to a string representing a number.</p>
+<p>Example usage of the <span style="color: #ff0000;">number</span> input type:</p>
+<pre><code>&lt;input type="number" /&gt;</code></pre>
+<h3>Range</h3>
+<p>The input element with a type attribute whose value is <span style="color: #ff0000;">range</span> represents an imprecise control for setting the elements value to a string representing a number.</p>
+<p>Example usage of the <span style="color: #ff0000;">range</span> input type:</p>
+<pre><code>&lt;input type="range" /&gt;</code></pre>
+<h3>Month, Week</h3>
+<p>Example usage of the <span style="color: #ff0000;">month, week</span> input types:</p>
+<pre><code>&lt;input type="month" /&gt;</code></pre>
+<pre><code>&lt;input type="week" /&gt;</code></pre>
+<h3>Time, Datetime-local</h3>
+<p>Example usage of the <span style="color: #ff0000;">Time, Datetime-local</span> input types:</p>
+<pre><code>&lt;input type="time" /&gt;</code></pre>
+<pre><code>&lt;input type="datetime-local" /&gt;</code></pre>
+<h3>Datetime-local vs. Datetime</h3>
+<p>The input element with a type attribute whoes value is datetime-local represents a control for setting the elements value to a string representing a local date and time (with no timezone information).</p>
+<h3>Color</h3>
+<p>The input element with a type attribute whose value is <span style="color: #ff0000;">color</span> represents a color-well control, for setting the element&#8217;s value to a string representing a simple color.</p>
+<p>Example usage of the <span style="color: #ff0000;">color</span> input types:</p>
+<pre><code>&lt;input type="color" /&gt;</code></pre>
+<h2>HTML5 provides new form elements:</h2>
+<ul>
+<li>Datalist</li>
+<li>Keygen</li>
+<li>Output</li>
+</ul>
+<p>We&#8217;re going to focus on the <span style="color: #ff0000;">datalist</span> form element.</p>
+<h3>Datalist</h3>
+<p>The <span style="color: #ff0000;">datalist</span> element represents a set of option elements that represent predefined options for other controls.</p>
+<p>Example usage of the <span style="color: #ff0000;">datalist</span> form element:</p>
+<pre><code>&lt;input type="text" list="browsers" /&gt;
+&lt;datalist id="browsers"&gt;
+     &lt;option value="Chrome"&gt;
+     &lt;option value="Firefox"&gt;
+     &lt;option value="Internet Explorer"&gt;
+     &lt;option value="Opera"&gt;
+     &lt;option value="Safari"&gt;
+&lt;/datalist&gt;</code></pre>
+<h2>HTML5 provides several new form attributes:</h2>
+<ul>
+<li>Placeholder</li>
+<li>Autofocus</li>
+<li>Autocomplete</li>
+<li>Required</li>
+<li>Pattern</li>
+<li>List</li>
+<li>Multiple</li>
+<li>novalidate</li>
+<li>formnovalidate</li>
+<li>form</li>
+<li>formaction</li>
+<li>formenctype</li>
+<li>formmethod</li>
+<li>formtarget</li>
+</ul>
+<p>We are going to focus on Placeholder, Autofocus, Required and Pattern form attributes.</p>
+<h3>Placeholder</h3>
+<p>The <span style="color: #ff0000;">placeholder</span> attribute allows you to specify a message that is shown inside the input, hidden when the user starts typing, and then returns when focus is lost on the input (when the input is blank).</p>
+<p>Example usage of the <span style="color: #ff0000;">placeholder</span> attribute:</p>
+<pre><code>&lt;input type="text" placeholder="Enter your email..." /&gt;</code></pre>
+<h3>Autofocus</h3>
+<p>The autofocus attribute will automatically focus the specified input when the page is rendered.</p>
+<p>Example usage of the <span style="color: #ff0000;">autofocus</span> attribute:</p>
+<pre><code>&lt;input type="text" autofocus /&gt;</code></pre>
+<h3>Required</h3>
+<p>If you add the new HTML5 required attribute to an input, when the form is submitted, the user will be notified of an error if the field is left blank.</p>
+<p>Example usage of the <span style="color: #ff0000;">required</span> attribute:</p>
+<pre><code>&lt;input type="text" required /&gt;</code></pre>
+<h3>Pattern</h3>
+<p>The <span style="color: #ff0000;">pattern</span> attribute accepts a JavaScript regular expression that can be used to validate a form field to match the pattern.</p>
+<p>Example usage of the <span style="color: #ff0000;">pattern</span> attribute:</p>
+<pre><code>&lt;input type="text" pattern="[0-9]{3}" /&gt;</code></pre>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/html5-forms/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

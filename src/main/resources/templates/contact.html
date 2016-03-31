@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+    <body>
+        <div th:fragment="contact">
+            <div class="container">
+	            <header role="banner">
+	                <h2 class="section-title"><i class="fa fa-envelope"/><span th:text="' '+#{contact.header}"/></h2>
+	            </header>
+	            
+	            <article role="main">
+	                <div class="row well">
+	                   <div id="messageSuccess" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${param.success}">
+                            <div class="alert alert-success">
+                                <i class="fa fa-check-circle"/><span th:text="' '+#{contact.success.message}"/>
+                            </div>
+                        </div>
+                        <div id="messageError" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${param.error}">
+                            <div class="alert alert-danger">
+                                <i class="fa fa-exclamation-circle"/><span th:text="' '+#{contact.error.message}"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-4  col-md-4 col-sm-5 col-xs-12 contact-info">
+                            <h3 th:text="#{contact.contactInfo.header}"/>
+                            <p><i class="fa fa-phone"/><span th:text="' '+#{contact.contactInfo.phone}"/></p>
+                            <p><i class="fa fa-envelope-o"/><a href="mailto:patilvijayg@gmail.com" th:text="' '+#{contact.contactInfo.email}"/></p>
+                            <p><i class="fa fa-skype"/><span th:text="' '+#{contact.contactInfo.skype}"/></p>
+                            <div class="social-icons">
+                                <a target="_blank" href="https://twitter.com/patilvijayg" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"/></a>
+                                <a target="_blank" href="https://www.facebook.com/patilvijayg" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"/></a>
+                                <a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"/></a>
+                                <a target="_blank" href="https://plus.google.com/+VijayPatilG" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"/></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8  col-md-8  col-sm-7 col-xs-12">
+                            <h3 class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3" th:text="#{contact.getInTouch.header}"/>
+                            <form class="form-horizontal" id="contact-form" role="form" th:object="${emailObject}" th:action="@{/sendEmail}" method="post">
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-md-3 col-sm-3 control-label" for="name" th:utext="#{contact.getInTouch.form.name}"/>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <input th:value="*{name}" type="text" name="name" class="form-control" id="name" placeholder="Your name" required="required" maxlength="50" aria-required="true" autocorrect="off" autocapitalize="words" spellcheck="false"/>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="email" class="col-lg-3 col-md-3 col-sm-3 control-label" th:utext="#{contact.getInTouch.form.email}"/>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <input th:value="*{email}" type="email" name="email" class="form-control" id="email" placeholder="Your email address" required="required" maxlength="100" aria-required="true" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="col-lg-3 col-md-3 col-sm-3 control-label" th:text="#{contact.getInTouch.form.phone}"/>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <input th:value="*{phone}" type="text" class="form-control" id="phone" name="phone"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="col-lg-3 col-md-3 col-sm-3 control-label" th:utext="#{contact.getInTouch.form.message}"/>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <textarea th:value="*{message}" name="message" id="message" class="form-control" required="required" maxlength="5000" rows="10" aria-required="true" autocorrect="off" autocapitalize="off" spellcheck="true"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-9 col-md-9 col-sm-9">
+                                        <button id="sendMessage" class="btn btn-primary"><i class="fa fa-envelope"/><span th:text="' '+#{contact.getInTouch.form.sendEmail.button}"/></button>
+                                        <button type="reset" class="btn btn-default"><i class="fa fa-undo"/><span th:text="' '+#{contact.getInTouch.form.reset.button}"/></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+	                </div>
+	            </article>
+	        </div>
+        </div>
+    </body>
+</html>

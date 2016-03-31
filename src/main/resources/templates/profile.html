@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+	<body>
+	    <div th:fragment="profile">
+	        <div class="container">
+	            <header role="banner">
+	                <h2 class="section-title"><i class="fa fa-user"/><span th:text="' '+#{profile.header}"/></h2>
+	            </header>
+	
+	            <article role="main">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-info">
+	                        <div class="panel panel-default">
+	                            <div class="panel-heading">
+	                                <h3>
+	                                    <ul class="list-inline">
+	                                        <li><span th:text="#{profile.user}+' '"/></li>
+	                                        <li><small><span id="myAge"/></small></li>
+	                                    </ul>
+	                                </h3>
+	                                <h4>
+	                                    <ul class="list-inline">
+	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="http://schema.org/place"><i class="fa fa-globe"/><a target="_blank" href="https://www.google.com/maps/dir/Olathe,+KS/Olathe,+KS" th:utext="' '+#{profile.user.current.location}"/></li> 
+	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="http://schema.org/place"><i class="fa fa-home"/><a target="_blank" href="https://www.google.com/maps/place/Dombivli,+Maharashtra,+India" th:utext="' '+#{profile.user.home.location}"/></li> 
+	                                        <li><i class="fa fa-wechat"/><span th:text="' '+#{profile.user.language1}"/><span id="hindiLanguage" th:text="' '+#{profile.user.language2}"/><span id="marathiLanguage" th:text="' '+#{profile.user.language3}"/><span id="gujaratiLanguage" th:text="' '+#{profile.user.language4}"/></li>
+	                                    </ul>
+	                                </h4>
+	                            </div>
+	                        </div>
+	                        
+	                        <dl class="dl-horizontal">
+                                <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.bio}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.bio}"/><hr class="horizontalLine hidden-xs"/><div class="hidden-xs" id="page-profile-facebook"><a target="_blank" href="https://www.facebook.com/patilvijayg" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"/></a></div></dt>
+                                <dd><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p1}"/><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p2}"/><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p3}"/><hr/></dd>
+                                <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.experience}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.experience}"/><hr class="horizontalLine hidden-xs"/><div class="hidden-xs" id="page-profile-linkedin"><a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"/></a></div></dt>
+                                <dd><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p1}"/><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p2}"/><hr/></dd>
+                                <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.interest}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.interest}"/><hr class="horizontalLine hidden-xs"/></dt>
+                                <dd><ul class="list-inline">
+                                        <li><i style="color:#644C37" class="fa fa-coffee"/></li>
+                                        <li><i style="color:green" class="fa fa-leaf"/></li>
+                                        <li><img alt="jQueryUI" width="14" height="14" th:src="@{/img/jqueryui_32x32.png}"/></li>
+                                        <li><img alt="jQuery" width="14" height="14" th:src="@{/img/jquery-logo.png}"/></li>
+                                        <li><i style="color:#016FBA" class="fa fa-css3"/></li>
+                                        <li><i style="color:#ec6231" class="fa fa-html5"/></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li><i style="color:#CCCCCC" class="fa fa-cutlery"/></li>
+                                        <li><i class="fa fa-car"/></li>
+                                        <li><i style="color:#0063dc" class="fa fa-camera"/></li>
+                                        <li><i style="color:#febd17" class="fa fa-film"/></li>
+                                        <li><i class="fa fa-music"/></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li><i style="color:#CCCCCC" class="fa fa-apple"/></li>
+                                        <li><i style="color:#d34836" class="fa fa-google"/></li>
+                                    </ul>
+                                    <p class="justify-text" th:utext="#{profile.user.topic.interest.description}"/><hr/>   
+                                </dd>
+                            </dl>
+                        </div>
+                        
+                        <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <button id="printResume" class="alert-link btn btn-default"><i class="fa fa-print fa-fw"/><span th:text="#{profile.printresume}"/></button><span th:text="' '+#{profile.printresume.info}"/>
+                                </div>
+                            </div>
+                        </div> 
+					</div>
+	            </article>
+	        </div>
+		</div>
+	</body>
+</html>
