@@ -12,7 +12,7 @@
 	<atom:link href="http://patilvijayg.synology.me/wordpress/feed/" rel="self" type="application/rss+xml" />
 	<link>http://patilvijayg.synology.me/wordpress</link>
 	<description>Tools, Tips, Tricks, Guidelines and Recommendations for Web Developers</description>
-	<lastBuildDate>Sun, 27 Mar 2016 06:18:20 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 10 Apr 2016 02:33:05 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -26,6 +26,129 @@
 	<height>32</height>
 </image> 
 	<item>
+		<title>Configure H2 Database for Spring Boot App</title>
+		<link>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/#comments</comments>
+		<pubDate>Sun, 10 Apr 2016 02:33:05 +0000</pubDate>
+		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+				<category><![CDATA[Spring]]></category>
+		<category><![CDATA[H2 Database]]></category>
+		<category><![CDATA[Spring Boot]]></category>
+		<category><![CDATA[Spring H2 Database]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=265</guid>
+		<description><![CDATA[H2 Database The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run. If you used a database [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h3>H2 Database</h3>
+<p>The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run.</p>
+<p>If you used a database like Oracle or MySQL, now you’ve introduced an external dependency. Your build is no longer portable. If you wanted to do the build under Jekins on a build server, you’d need to install the database on that server or provide a configuration pointing to a database elsewhere.</p>
+<p>By using the H2 database as an embedded in memory database, your build remains portable.</p>
+<h3>H2 Database and Spring Boot</h3>
+<p>Configuring the H2 database with Spring Boot is very easy. You just need to add the H2 dependency to your Maven Pom. Spring Boot will automatically create the database, setup all the database JDBC objects, and by default configure Hibernate in a create-drop mode. Thus when Hibernate starts up, it will scan the JPA annotated classes and automatically generate and execute the SQL code needed to create the database tables.</p>
+<p>By adding this dependency to your Maven POM, Spring Boot will automatically configure the H2 database.</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+<h3>H2 Database Console</h3>
+<p>Frequently when developing Spring based applications, you will use the H2 in memory database during your development process. Its light, fast, and easy to use. It generally does a great job of emulating other RDBMs which you see more frequently for production use (ie, Oracle, MySQL, Postgres). When developing Spring Applications, its common to use JPA/Hibernate and leverage Hibernate’s schema generation capabilities. With H2, your database is created by Hibernate every time you start the application. Thus, the database is brought up in a known and consistent state. It also allows you to develop and test your JPA mappings.</p>
+<p>H2 ships with a web based database console, which you can use while your application is under development. It is a convenient way to view the tables created by Hibernate and run queries against the in memory database.  Here is an example of the H2 database console.</p>
+<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/H2-Database-Console.png" /></p>
+<h3>Configuring Spring Boot for the H2 Database Console</h3>
+<p>If you’ve included H2 as an option using the Spring Initializr, the H2 dependency is added to your Maven POM as follows:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+<p>This setup works great for running our Spring Boot application with the H2 database out of the box, but if want to enable the use of the H2 database console, we’ll need to change the scope of the Maven from runtime, to compile. This is needed to support the changes we need to make to the Spring Boot configuration. Just remove the scope statement and Maven will change to the default of compile.</p>
+<p>The H2 database dependency in your Maven POM should be as follows:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+<h3>Spring Configuration</h3>
+<p>Normally, you’d configure the H2 database in the web.xml file as a servlet, but Spring Boot is going to use an embedded instance of Tomcat, so we don’t have access to the web.xml file. Spring Boot does provide us a mechanism to use for declaring servlets via a Spring Boot ServletRegistrationBean.</p>
+<p>The following Spring Configuration declares the servlet wrapper for the H2 database console and maps it to the path of /console.</p>
+<pre><code>import org.h2.server.web.WebServlet;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class WebConfiguration {
+    @Bean
+    ServletRegistrationBean h2servletRegistration(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+        registrationBean.addUrlMappings("/console/*");
+        return registrationBean;
+    }
+}</code></pre>
+<p>If you are not using Spring Security with the H2 database console, this is all you need to do. When you run your Spring Boot application, you’ll now be able to access the H2 database console at http://localhost:8080/console.</p>
+<h3>Spring Security Configuration</h3>
+<p>If you’ve enabled Spring Security in your Spring Boot application, you will not be able to access the H2 database console. With its default settings under Spring Boot, Spring Security will block access to H2 database console.</p>
+<p>To enable access to the H2 database console under Spring Security you need to change three things:</p>
+<ol>
+<li>Allow all access to the url path /console/*.</li>
+<li>Disable CRSF (Cross-Site Request Forgery). By default, Spring Security will protect against CRSF attacks.</li>
+</ol>
+<p>Since the H2 database console runs inside a frame, you need to enable this in in Spring Security. The following Spring Security Configuration will:</p>
+<ol>
+<li>Allow all requests to the root url (“/”) (Line 12)</li>
+<li>Allow all requests to the H2 database console url (“/console/*”) (Line 13)</li>
+<li>Disable CSRF protection (Line 15)</li>
+<li>Disable X-Frame-Options in Spring Security (Line 16)</li>
+</ol>
+<p><strong>CAUTION:</strong> This is not a Spring Security Configuration that you would want to use for a production website. These settings are only to support development of a Spring Boot web application and enable access to the H2 database console. I cannot think of an example where you’d actually want the H2 database console exposed on a production database.</p>
+<pre><code>package guru.springframework.configuration;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
+    }
+}</code></pre>
+<h3>Using the H2 Database Console</h3>
+<p>Simply start your Spring Boot web application and navigate to the url http://localhost:8080/console and you will see the following logon screen for the H2 database console.</p>
+<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/H2-Login-Screen.png" /></p>
+<h3>Spring Boot Default H2 Database Settings</h3>
+<p>Before you login, be sure you have the proper H2 database settings. I had a hard time finding the default values used by Spring Boot, and had to use Hibernate logging to find out what the JDBC Url was being used by Spring Boot.</p>
+<table>
+<tr>
+<th>Value</th>
+<th>Setting</th>
+</tr>
+<tr>
+<td>Driver Class</td>
+<td>org.h2.Driver</td>
+</tr>
+<tr>
+<td>JDBC URL</td>
+<td>jdbc:h2:mem:testdb</td>
+</tr>
+<tr>
+<td>User Name</td>
+<td>sa</td>
+</tr>
+<tr>
+<td>Password</td>
+<td><blank></td>
+</tr>
+</table>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Consuming REST Service with JavaScript</title>
 		<link>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/</link>
 		<comments>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/#comments</comments>
@@ -1589,124 +1712,6 @@ document.getElementById("myId");
 ]]></content:encoded>
 			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/jquery-best-practices/feed/</wfw:commentRss>
 		<slash:comments>17</slash:comments>
-		</item>
-		<item>
-		<title>HTML5 Forms</title>
-		<link>http://patilvijayg.synology.me/wordpress/html5-forms/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/html5-forms/#comments</comments>
-		<pubDate>Sat, 24 Aug 2013 01:34:59 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
-				<category><![CDATA[HTML5]]></category>
-		<category><![CDATA[Autocomplete]]></category>
-		<category><![CDATA[Autofocus]]></category>
-		<category><![CDATA[Datalist]]></category>
-		<category><![CDATA[Datetime-local]]></category>
-		<category><![CDATA[Keygen]]></category>
-		<category><![CDATA[Output]]></category>
-		<category><![CDATA[Pattern]]></category>
-		<category><![CDATA[Placeholder]]></category>
-		<category><![CDATA[Required]]></category>
-
-		<guid isPermaLink="false">http://patilvijayg.com/wordpress/?p=94</guid>
-		<description><![CDATA[HTML5 provides several new input types: Search The input element with a type attribute whose value is search represents a one line plain text edit control for entering one or more search terms. Example usage of the search input type: &#60;input type="search" /&#62; Email The email input looks just like a regular text input, but [&#8230;]]]></description>
-				<content:encoded><![CDATA[<h2>HTML5 provides several new input types:</h2>
-<h3>Search</h3>
-<p>The input element with a type attribute whose value is <span style="color: #ff0000;">search</span> represents a one line plain text edit control for entering one or more search terms.</p>
-<p>Example usage of the <span style="color: #ff0000;">search</span> input type:</p>
-<pre><code>&lt;input type="search" /&gt;</code></pre>
-<h3>Email</h3>
-<p>The <span style="color: #ff0000;">email</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
-<p>Example usage of the <span style="color: #ff0000;">email</span> input type:</p>
-<pre><code>&lt;input type="email" /&gt;</code></pre>
-<h3>URL</h3>
-<p>The <span style="color: #ff0000;">url</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
-<p>Example usage of the <span style="color: #ff0000;">url</span> input type:</p>
-<pre><code>&lt;input type="url" /&gt;</code></pre>
-<h3>Date</h3>
-<p>The input element with a type attribute whose value is <span style="color: #ff0000;">date</span> represents a control for setting the element&#8217;s value to a string representing a date.</p>
-<p>Example usage of the <span style="color: #ff0000;">date</span> input type:</p>
-<pre><code>&lt;input type="date" /&gt;</code></pre>
-<h3>Tel</h3>
-<p>The <span style="color: #ff0000;">tel</span> input looks just like a regular text input, but with added usability on mobile devices.</p>
-<p>Example usage of the <span style="color: #ff0000;">tel</span> input type:</p>
-<pre><code>&lt;input type="tel" /&gt;</code></pre>
-<h3>Number</h3>
-<p>The input element with a type attribute whose value is <span style="color: #ff0000;">number</span> represents a precise control for setting the elements value to a string representing a number.</p>
-<p>Example usage of the <span style="color: #ff0000;">number</span> input type:</p>
-<pre><code>&lt;input type="number" /&gt;</code></pre>
-<h3>Range</h3>
-<p>The input element with a type attribute whose value is <span style="color: #ff0000;">range</span> represents an imprecise control for setting the elements value to a string representing a number.</p>
-<p>Example usage of the <span style="color: #ff0000;">range</span> input type:</p>
-<pre><code>&lt;input type="range" /&gt;</code></pre>
-<h3>Month, Week</h3>
-<p>Example usage of the <span style="color: #ff0000;">month, week</span> input types:</p>
-<pre><code>&lt;input type="month" /&gt;</code></pre>
-<pre><code>&lt;input type="week" /&gt;</code></pre>
-<h3>Time, Datetime-local</h3>
-<p>Example usage of the <span style="color: #ff0000;">Time, Datetime-local</span> input types:</p>
-<pre><code>&lt;input type="time" /&gt;</code></pre>
-<pre><code>&lt;input type="datetime-local" /&gt;</code></pre>
-<h3>Datetime-local vs. Datetime</h3>
-<p>The input element with a type attribute whoes value is datetime-local represents a control for setting the elements value to a string representing a local date and time (with no timezone information).</p>
-<h3>Color</h3>
-<p>The input element with a type attribute whose value is <span style="color: #ff0000;">color</span> represents a color-well control, for setting the element&#8217;s value to a string representing a simple color.</p>
-<p>Example usage of the <span style="color: #ff0000;">color</span> input types:</p>
-<pre><code>&lt;input type="color" /&gt;</code></pre>
-<h2>HTML5 provides new form elements:</h2>
-<ul>
-<li>Datalist</li>
-<li>Keygen</li>
-<li>Output</li>
-</ul>
-<p>We&#8217;re going to focus on the <span style="color: #ff0000;">datalist</span> form element.</p>
-<h3>Datalist</h3>
-<p>The <span style="color: #ff0000;">datalist</span> element represents a set of option elements that represent predefined options for other controls.</p>
-<p>Example usage of the <span style="color: #ff0000;">datalist</span> form element:</p>
-<pre><code>&lt;input type="text" list="browsers" /&gt;
-&lt;datalist id="browsers"&gt;
-     &lt;option value="Chrome"&gt;
-     &lt;option value="Firefox"&gt;
-     &lt;option value="Internet Explorer"&gt;
-     &lt;option value="Opera"&gt;
-     &lt;option value="Safari"&gt;
-&lt;/datalist&gt;</code></pre>
-<h2>HTML5 provides several new form attributes:</h2>
-<ul>
-<li>Placeholder</li>
-<li>Autofocus</li>
-<li>Autocomplete</li>
-<li>Required</li>
-<li>Pattern</li>
-<li>List</li>
-<li>Multiple</li>
-<li>novalidate</li>
-<li>formnovalidate</li>
-<li>form</li>
-<li>formaction</li>
-<li>formenctype</li>
-<li>formmethod</li>
-<li>formtarget</li>
-</ul>
-<p>We are going to focus on Placeholder, Autofocus, Required and Pattern form attributes.</p>
-<h3>Placeholder</h3>
-<p>The <span style="color: #ff0000;">placeholder</span> attribute allows you to specify a message that is shown inside the input, hidden when the user starts typing, and then returns when focus is lost on the input (when the input is blank).</p>
-<p>Example usage of the <span style="color: #ff0000;">placeholder</span> attribute:</p>
-<pre><code>&lt;input type="text" placeholder="Enter your email..." /&gt;</code></pre>
-<h3>Autofocus</h3>
-<p>The autofocus attribute will automatically focus the specified input when the page is rendered.</p>
-<p>Example usage of the <span style="color: #ff0000;">autofocus</span> attribute:</p>
-<pre><code>&lt;input type="text" autofocus /&gt;</code></pre>
-<h3>Required</h3>
-<p>If you add the new HTML5 required attribute to an input, when the form is submitted, the user will be notified of an error if the field is left blank.</p>
-<p>Example usage of the <span style="color: #ff0000;">required</span> attribute:</p>
-<pre><code>&lt;input type="text" required /&gt;</code></pre>
-<h3>Pattern</h3>
-<p>The <span style="color: #ff0000;">pattern</span> attribute accepts a JavaScript regular expression that can be used to validate a form field to match the pattern.</p>
-<p>Example usage of the <span style="color: #ff0000;">pattern</span> attribute:</p>
-<pre><code>&lt;input type="text" pattern="[0-9]{3}" /&gt;</code></pre>
-]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/html5-forms/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
 		</item>
 	</channel>
 </rss>
