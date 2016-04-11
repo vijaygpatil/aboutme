@@ -35,7 +35,21 @@
                                 <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.experience}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.experience}"/><hr class="horizontalLine hidden-xs"/><div class="hidden-xs" id="page-profile-linkedin"><a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"/></a></div></dt>
                                 <dd><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p1}"/><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p2}"/><hr/></dd>
                                 <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.interest}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.interest}"/><hr class="horizontalLine hidden-xs"/></dt>
-                                <dd><ul class="list-inline">
+                                <dd>
+                                <div class="dev-icons hidden-xs hidden-print">
+                                	<a href="https://www.java.com"><i class="devicons devicons-java" style="color:#E74B1B;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Java"></i><span class="sr-only">Java</span></a>
+                                	<a href="http://jquery.com/"><i class="devicons devicons-jquery" style="color:#1169AE;" data-toggle="tooltip" data-placement="top" title="" data-original-title="jQuery"></i><span class="sr-only">jQuery</span></a>
+									<a href="http://jqueryui.com/"><i class="devicons devicons-jquery_ui" style="color:#FF9700;" data-toggle="tooltip" data-placement="top" title="" data-original-title="jQuery-UI"></i><span class="sr-only">jQuery UI</span></a>
+									<a href="http://www.w3.org/TR/html5/"><i class="devicons devicons-html5" style="color:#ec6231;" data-toggle="tooltip" data-placement="top" title="" data-original-title="HTML5"></i><span class="sr-only">HTML5</span></a>
+									<a href="http://www.w3.org/Style/CSS/"><i class="devicons devicons-css3" style="color:#016FBA;" data-toggle="tooltip" data-placement="top" title="" data-original-title="CSS3"></i><span class="sr-only">CSS3</span></a>
+									<a href="http://en.wikipedia.org/wiki/JavaScript"><i class="devicons devicons-javascript" style="color:#F0DB4F;" data-toggle="tooltip" data-placement="top" title="" data-original-title="JavaScript"></i><span class="sr-only">JavaScript</span></a>
+									<a href="http://www.linux.com/"><i class="devicon-ubuntu-plain" style="color:#3A3A3A;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubuntu"></i><span class="sr-only">Ubuntu</span></a>
+									<a href="http://www.android.com/"><i class="devicon-android-plain"  style="color:#3A3A3A;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Android"></i><span class="sr-only">Android</span></a>
+									<a href="http://www.apple.com/"><i class="devicon-apple-original"  style="color:#3A3A3A;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apple"></i><span class="sr-only">Apple</span></a>
+									<a href="http://git-scm.com/"><i class="devicons devicons-git" style="color:#171515;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Git"></i><span class="sr-only">Git</span></a>
+								</div> 
+                                
+                                <!-- <ul class="list-inline">
                                         <li><i style="color:#644C37" class="fa fa-coffee"/></li>
                                         <li><i style="color:green" class="fa fa-leaf"/></li>
                                         <li><img alt="jQueryUI" width="14" height="14" th:src="@{/img/jqueryui_32x32.png}"/></li>
@@ -53,7 +67,7 @@
                                         <li></li>
                                         <li><i style="color:#CCCCCC" class="fa fa-apple"/></li>
                                         <li><i style="color:#d34836" class="fa fa-google"/></li>
-                                    </ul>
+                                    </ul> -->
                                     <p class="justify-text" th:utext="#{profile.user.topic.interest.description}"/><hr/>   
                                 </dd>
                             </dl>

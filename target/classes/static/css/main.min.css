@@ -150,6 +150,11 @@ dl{margin-bottom:0px;}
 	text-align: right;
 }
 
+.dev-icons {
+	font-size: -webkit-xxx-large;
+	text-align: center;
+}
+
 @media print {
 	body img {
 	   display:none;
