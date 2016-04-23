@@ -321,9 +321,9 @@ $(document).ready(function() {
                 var description = $(this).find("description").text();
                 var linkUrl = $(this).find("link").text();
                 var link = " <a href='" + linkUrl + "' target='_blank'><h4>Read More...</h4><a>";
-                $('#feedContainer').append('<article><h3>'+title+'</h3><p class="text-info">'+description+link+'</p>');
+                $('#feedContainer').append('<article><h3>'+title+'</h3><p class="text-info">'+description+'</p>');
                 if(index == 4) {
-                	$('#feedContainer').append("<br /><a target='_blank' href='http://patilvijayg.synology.me/wordpress'><h4>Read More Topics...<h4></a>");
+                	//$('#feedContainer').append("<br /><a target='_blank' href='http://patilvijayg.synology.me/wordpress'><h4>Read More Topics...<h4></a>");
                 	return false;
                 }
             });

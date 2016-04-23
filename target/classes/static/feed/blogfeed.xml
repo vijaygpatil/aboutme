@@ -8,36 +8,28 @@
 	>
 
 <channel>
-	<title>Vijay Patil&#039;s Blog</title>
-	<atom:link href="http://patilvijayg.synology.me/wordpress/feed/" rel="self" type="application/rss+xml" />
+	<title>Vijay Patil&#039;s Tech Blog</title>
+	<atom:link href="http://patilvijayg.synology.me/wordpress/index.php/feed/" rel="self" type="application/rss+xml" />
 	<link>http://patilvijayg.synology.me/wordpress</link>
-	<description>Tools, Tips, Tricks, Guidelines and Recommendations for Web Developers</description>
-	<lastBuildDate>Sun, 10 Apr 2016 02:33:05 +0000</lastBuildDate>
+	<description>Tips and Tricks for Software Developers</description>
+	<lastBuildDate>Thu, 21 Apr 2016 03:11:13 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>http://wordpress.org/?v=4.3.2</generator>
-
-<image>
-	<url>http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/cropped-Leo_Black_512X512-32x32.png</url>
-	<title>Vijay Patil&#039;s Blog</title>
-	<link>http://patilvijayg.synology.me/wordpress</link>
-	<width>32</width>
-	<height>32</height>
-</image> 
+	<generator>https://wordpress.org/?v=4.5</generator>
 	<item>
 		<title>Configure H2 Database for Spring Boot App</title>
-		<link>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/#comments</comments>
-		<pubDate>Sun, 10 Apr 2016 02:33:05 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/#respond</comments>
+		<pubDate>Sat, 09 Apr 2016 21:33:05 +0000</pubDate>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[Spring]]></category>
 		<category><![CDATA[H2 Database]]></category>
 		<category><![CDATA[Spring Boot]]></category>
 		<category><![CDATA[Spring H2 Database]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=265</guid>
-		<description><![CDATA[H2 Database The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run. If you used a database [&#8230;]]]></description>
+		<description><![CDATA[H2 Database The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run. If you used a database &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/" class="more-link">Continue reading<span class="screen-reader-text"> "Configure H2 Database for Spring Boot App"</span></a>]]></description>
 				<content:encoded><![CDATA[<h3>H2 Database</h3>
 <p>The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run.</p>
 <p>If you used a database like Oracle or MySQL, now you’ve introduced an external dependency. Your build is no longer portable. If you wanted to do the build under Jekins on a build server, you’d need to install the database on that server or provide a configuration pointing to a database elsewhere.</p>
@@ -52,7 +44,7 @@
 <h3>H2 Database Console</h3>
 <p>Frequently when developing Spring based applications, you will use the H2 in memory database during your development process. Its light, fast, and easy to use. It generally does a great job of emulating other RDBMs which you see more frequently for production use (ie, Oracle, MySQL, Postgres). When developing Spring Applications, its common to use JPA/Hibernate and leverage Hibernate’s schema generation capabilities. With H2, your database is created by Hibernate every time you start the application. Thus, the database is brought up in a known and consistent state. It also allows you to develop and test your JPA mappings.</p>
 <p>H2 ships with a web based database console, which you can use while your application is under development. It is a convenient way to view the tables created by Hibernate and run queries against the in memory database.  Here is an example of the H2 database console.</p>
-<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/H2-Database-Console.png" /></p>
+<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/h2-database-console.png" /></p>
 <h3>Configuring Spring Boot for the H2 Database Console</h3>
 <p>If you’ve included H2 as an option using the Spring Initializr, the H2 dependency is added to your Maven POM as follows:</p>
 <pre><code>&lt;dependency&gt;
@@ -119,7 +111,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 }</code></pre>
 <h3>Using the H2 Database Console</h3>
 <p>Simply start your Spring Boot web application and navigate to the url http://localhost:8080/console and you will see the following logon screen for the H2 database console.</p>
-<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/H2-Login-Screen.png" /></p>
+<p><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/h2-login-screen.png" /></p>
 <h3>Spring Boot Default H2 Database Settings</h3>
 <p>Before you login, be sure you have the proper H2 database settings. I had a hard time finding the default values used by Spring Boot, and had to use Hibernate logging to find out what the JDBC Url was being used by Spring Boot.</p>
 <table>
@@ -145,21 +137,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 </tr>
 </table>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/configure-h2-database-for-spring-boot-app/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>Consuming REST Service with JavaScript</title>
-		<link>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/#respond</comments>
 		<pubDate>Fri, 27 Nov 2015 07:16:50 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[REST]]></category>
 		<category><![CDATA[Ajax]]></category>
 		<category><![CDATA[RESTFul]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=253</guid>
-		<description><![CDATA[For consuming REST Services using front-end JavaScript frameworks, we recommend using jQuery. jQuery has a robust AJAX functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher. Here is a sample template for making service calls using AJAX in jQuery. There are more options in jQuery.ajax then what are listed below, you can use [&#8230;]]]></description>
+		<description><![CDATA[For consuming REST Services using front-end JavaScript frameworks, we recommend using jQuery. jQuery has a robust AJAX functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher. Here is a sample template for making service calls using AJAX in jQuery. There are more options in jQuery.ajax then what are listed below, you can use &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/" class="more-link">Continue reading<span class="screen-reader-text"> "Consuming REST Service with JavaScript"</span></a>]]></description>
 				<content:encoded><![CDATA[<p>For consuming REST Services using front-end JavaScript frameworks, we recommend using <a class="external-link" href="http://jquery.com/" rel="nofollow">jQuery</a>. jQuery has a robust <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">AJAX</a> functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher.</p>
 <p>Here is a sample template for making service calls using AJAX in jQuery. There are more options in <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">jQuery.ajax</a> then what are listed below, you can use them based on your needs.</p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
@@ -232,15 +224,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 <p>Refer <a href="http://patilvijayg.synology.me/wordpress/restful-service-development/">RESTful Service Development</a><br />
 Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-codes/‎">REST Response Status Codes</a></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/consuming-rest-service-with-javascript/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>RESTful Service Development</title>
-		<link>http://patilvijayg.synology.me/wordpress/restful-service-development/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/restful-service-development/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/#respond</comments>
 		<pubDate>Wed, 25 Nov 2015 20:56:30 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[REST]]></category>
 		<category><![CDATA[Content Type]]></category>
 		<category><![CDATA[DELETE]]></category>
@@ -252,7 +244,7 @@ Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-cod
 		<category><![CDATA[PUT]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=171</guid>
-		<description><![CDATA[Terminology Resource A source of information that can be identified by a logical URL. Representation The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc. State The current condition of a resource. Transfer Movement of a resource, in some representational form. If the request method is [&#8230;]]]></description>
+		<description><![CDATA[Terminology Resource A source of information that can be identified by a logical URL. Representation The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc. State The current condition of a resource. Transfer Movement of a resource, in some representational form. If the request method is &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/" class="more-link">Continue reading<span class="screen-reader-text"> "RESTful Service Development"</span></a>]]></description>
 				<content:encoded><![CDATA[<h3>Terminology</h3>
 <table>
 <tbody>
@@ -469,15 +461,15 @@ Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-cod
 </table>
 <p>For a detailed listing of Media Types encompassing image, video, audio etc., please refer: http://en.wikipedia.org/wiki/Internet_media_type</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/restful-service-development/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>Useful Git Tips Tricks and Workflow</title>
-		<link>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/#respond</comments>
 		<pubDate>Thu, 15 Oct 2015 14:55:40 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[GIT]]></category>
 		<category><![CDATA[difftool]]></category>
 		<category><![CDATA[git merge]]></category>
@@ -490,7 +482,7 @@ Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-cod
 		<category><![CDATA[mergetool]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=181</guid>
-		<description><![CDATA[Getting Help There are basically two ways on the command line to get help. Git will print a short overview of the call syntax as well as the most important options for you. git [command] -h The second one is having a look at the manpages themselves. git help [command] Git Prompt for bash There [&#8230;]]]></description>
+		<description><![CDATA[Getting Help There are basically two ways on the command line to get help. Git will print a short overview of the call syntax as well as the most important options for you. git [command] -h The second one is having a look at the manpages themselves. git help [command] Git Prompt for bash There &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/" class="more-link">Continue reading<span class="screen-reader-text"> "Useful Git Tips Tricks and Workflow"</span></a>]]></description>
 				<content:encoded><![CDATA[<h2>Getting Help</h2>
 <p>There are basically two ways on the command line to get help.<br />
 Git will print a short overview of the call syntax as well as the most important options for you.</p>
@@ -657,7 +649,7 @@ git config --global user.email "vijay.patil@patilvijayg.com"</code></td>
 <td><code>[merge]<br />
 tool = kdiff3<br />
 [mergetool "kdiff3"]<br />
-cmd = \"C:\\\\Program Files (x86)\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED</code></td>
+cmd = "C:\\Program Files (x86)\\KDiff3\\kdiff3" $BASE $LOCAL $REMOTE -o $MERGED</code></td>
 </tr>
 </tbody>
 </table>
@@ -666,7 +658,7 @@ cmd = \"C:\\\\Program Files (x86)\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o 
 <tbody>
 <tr>
 <td><code>git config --global merge.tool kdiff3<br />
-git config --global mergetool.kdiff3.cmd '"C:\\Program Files (x86)\\KDiff3\\kdiff3" $BASE $LOCAL $REMOTE -o $MERGED'</code></td>
+git config --global mergetool.kdiff3.cmd '"C:\Program Files (x86)\KDiff3\kdiff3" $BASE $LOCAL $REMOTE -o $MERGED'</code></td>
 </tr>
 </tbody>
 </table>
@@ -679,7 +671,7 @@ git config --global mergetool.kdiff3.cmd '"C:\\Program Files (x86)\\KDiff3\\kdif
 </tbody>
 </table>
 <h2>Git Workflow</h2>
-<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a><br />
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png" alt="screen shot 2016-03-26 at 9.54.37 AM" /></a><br />
 Please refer to this blog to know more about <a href="http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/">GIT Procedures and Workflow</a></p>
 <h2 id="UsefulGitTricks-HowtoCleanupRemote/LocalBranches">How to Cleanup Remote/Local Branches</h2>
 <p>This first command will remove any references to a remote branch in your local repository.</p>
@@ -727,7 +719,7 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 <tr>
 <td class="code">
 <div class="container" title="Hint: double-click to select code">
-<div class="line number1 index0 alt2"><code class="java plain">git branch --remote --merged origin/master | grep -v origin/master | sed </code><code class="java string">'s/origin\///'</code> <code class="java plain">| xargs -n </code><code class="java value">1</code> <code class="java plain">git push --delete origin</code></div>
+<div class="line number1 index0 alt2"><code class="java plain">git branch --remote --merged origin/master | grep -v origin/master | sed </code><code class="java string">'s/origin///'</code> <code class="java plain">| xargs -n </code><code class="java value">1</code> <code class="java plain">git push --delete origin</code></div>
 </div>
 </td>
 </tr>
@@ -834,7 +826,7 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 <div class="line number3 index2 alt2"><code class="java spaces"> </code></div>
 <div class="line number4 index3 alt1"><code class="java plain">* 919b1af (HEAD, origin/fix-broken-facade, fix-broken-facade) Fix broken facade</code></div>
 <div class="line number5 index4 alt2"><code class="java plain">*   137ff7e (origin/develop, origin/HEAD, develop) Merge pull request #</code><code class="java value">428</code> <code class="java plain">in DEALER/app from NETPT-</code><code class="java value">4416</code> <code class="java plain">to develop</code></div>
-<div class="line number6 index5 alt1"><code class="java plain">|\  </code></div>
+<div class="line number6 index5 alt1"><code class="java plain">|  </code></div>
 <div class="line number7 index6 alt2"><code class="java plain">| * dbbead8 Fix </code><code class="java keyword">for</code> <code class="java plain">the expiry date which was being set as the last date of current month.</code></div>
 <div class="line number8 index7 alt1"><code class="java plain">|/  </code></div>
 <div class="line number9 index8 alt2"><code class="java plain">*   da52f8d Merge pull request #</code><code class="java value">418</code> <code class="java plain">in DEALER/app from fix-broken-tests to develop</code></div>
@@ -866,25 +858,24 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 </div>
 </div>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/useful-git-tips-tricks-and-workflow/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>Git workflow and procedures</title>
-		<link>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/#respond</comments>
 		<pubDate>Sun, 20 Sep 2015 16:23:06 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
-				<category><![CDATA[Uncategorized]]></category>
-		<category><![CDATA[GIT]]></category>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
+				<category><![CDATA[GIT]]></category>
 		<category><![CDATA[git develop]]></category>
 		<category><![CDATA[git master]]></category>
 		<category><![CDATA[git workflow]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=218</guid>
-		<description><![CDATA[Git Workflow Branches develop Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server. It is up to the scrum team/project team whether or not the develop branch is locked down. It may be appropriate [&#8230;]]]></description>
+		<description><![CDATA[Git Workflow Branches develop Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server. It is up to the scrum team/project team whether or not the develop branch is locked down. It may be appropriate &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/" class="more-link">Continue reading<span class="screen-reader-text"> "Git workflow and procedures"</span></a>]]></description>
 				<content:encoded><![CDATA[<h2>Git Workflow</h2>
-<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/03/Screen-Shot-2016-03-26-at-9.54.37-AM.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a></p>
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a></p>
 <h3>Branches</h3>
 <table>
 <tbody>
@@ -928,21 +919,21 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 <li>If you have JIRA integration in stash, when you mention a JIRA issue key in Stash, for example in a pull request description or a comment, the key gets automatically linked.</li>
 </ol>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/git-workflow-and-procedures/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>REST Response Status Codes</title>
-		<link>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/#respond</comments>
 		<pubDate>Wed, 26 Aug 2015 14:58:10 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[REST]]></category>
 		<category><![CDATA[RESTFul]]></category>
 		<category><![CDATA[status code]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=162</guid>
-		<description><![CDATA[SUCCESSFUL STATUS CODES (2XX) Code Meaning Description Examples 200 OK The request was successful GET /customers/&#60;customerid&#62; successfully found a customer and returned it in the response body. 201 Created The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource. POST /customers successfully created [&#8230;]]]></description>
+		<description><![CDATA[SUCCESSFUL STATUS CODES (2XX) Code Meaning Description Examples 200 OK The request was successful GET /customers/&#60;customerid&#62; successfully found a customer and returned it in the response body. 201 Created The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource. POST /customers successfully created &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/" class="more-link">Continue reading<span class="screen-reader-text"> "REST Response Status Codes"</span></a>]]></description>
 				<content:encoded><![CDATA[<p><strong>SUCCESSFUL STATUS CODES (2XX)</strong></p>
 <table class="confluenceTable">
 <tbody>
@@ -1131,22 +1122,22 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 400–499 as client request errors,<br />
 500–599 as server errors</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/rest-response-status-codes/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>Swagger UI for your REST APIs using Springfox (Swagger spec 2.0) and Spring Boot</title>
-		<link>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/#respond</comments>
 		<pubDate>Wed, 01 Jul 2015 00:45:23 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[REST]]></category>
 		<category><![CDATA[Spring]]></category>
 		<category><![CDATA[Swagger]]></category>
 		<category><![CDATA[Testing]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=138</guid>
-		<description><![CDATA[In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle). Step 1: Add Swagger dependencies in your pom.xml pom.xml &#60;properties&#62; &#60;springfox.version&#62;2.1.2&#60;/springfox.version&#62; &#60;/properties&#62; &#60;dependency&#62; &#60;!-- API Documentation Generation --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger2&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; &#60;dependency&#62; &#60;!-- API Documentation Web UI --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger-ui&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; Step 2: Use [&#8230;]]]></description>
+		<description><![CDATA[In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle). Step 1: Add Swagger dependencies in your pom.xml pom.xml &#60;properties&#62; &#60;springfox.version&#62;2.1.2&#60;/springfox.version&#62; &#60;/properties&#62; &#60;dependency&#62; &#60;!-- API Documentation Generation --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger2&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; &#60;dependency&#62; &#60;!-- API Documentation Web UI --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger-ui&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; Step 2: Use &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/" class="more-link">Continue reading<span class="screen-reader-text"> "Swagger UI for your REST APIs using Springfox (Swagger spec 2.0) and Spring Boot"</span></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle).</p>
 <p style="text-align: justify;"><strong>Step 1: Add Swagger dependencies in your pom.xml</strong></p>
 <p style="text-align: justify;">pom.xml</p>
@@ -1207,17 +1198,17 @@ public class ABCServiceApplication extends SpringBootServletInitializer {
 <p style="text-align: justify;">Now your web app should automatically pick up the necessary files and show the UI which can be used for REST API testing. <code></code></p>
 <pre>http://HOST:PORT/yourApp/swagger-ui.html
 </pre>
-<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/Swagger-UI.png"><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2015/10/Swagger-UI.png" alt="Swagger UI" width="1954" height="764" class="alignnone size-full wp-image-147" /></a></p>
+<p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/swagger-ui.png"><img src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/swagger-ui.png" alt="Swagger UI" width="1954" height="764" class="alignnone size-full wp-image-147" /></a></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
 		<title>Integrate Thymeleaf with Spring</title>
-		<link>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/#comments</comments>
 		<pubDate>Fri, 22 Aug 2014 06:04:29 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[Spring]]></category>
 		<category><![CDATA[Thymeleaf]]></category>
 		<category><![CDATA[Spring MVC]]></category>
@@ -1226,7 +1217,7 @@ public class ABCServiceApplication extends SpringBootServletInitializer {
 		<category><![CDATA[ThymeleafViewResolver]]></category>
 
 		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=55</guid>
-		<description><![CDATA[Thymeleaf is a Java library. It is an XML / XHTML / HTML5 template engine (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the view layer of web applications, but it can process any XML file even in offline environments. It provides an optional module for [&#8230;]]]></description>
+		<description><![CDATA[Thymeleaf is a Java library. It is an XML / XHTML / HTML5 template engine (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the view layer of web applications, but it can process any XML file even in offline environments. It provides an optional module for &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/" class="more-link">Continue reading<span class="screen-reader-text"> "Integrate Thymeleaf with Spring"</span></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">Thymeleaf is a Java library. It is an <b>XML / XHTML / HTML5 template engine</b> (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the <i>view layer</i> of web applications, but it can process any XML file even in offline environments.</p>
 <p style="text-align: justify;">It provides an optional module for integration with <b>Spring MVC</b>, so that you can use it as a complete substitute of JSP in your applications made with this technology, even with HTML5.</p>
 <p style="text-align: justify;">Here is the step-by-step guide to integrate Thymeleaf with Spring.</p>
@@ -1320,22 +1311,22 @@ public String home(Model model) {
 </code></pre>
 <p style="text-align: justify;">Here HomeController uses ThymeleafViewResolver to resolve a view home. A call made using the above URL will map to the method redirectToHome method in the controller which maps to the home method. Method home adds an attribute message to the model and returns a string &#8216;home&#8217;. A ServletContextTemplateResolver resolves string &#8216;home&#8217; to &#8216;/WEB-INF/templates/home.html&#8217; which then is used by SpringTemplateEngine to render view.</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/how-to-integrate-thymeleaf-with-spring/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/feed/</wfw:commentRss>
 		<slash:comments>3</slash:comments>
 		</item>
 		<item>
 		<title>jQuery Plugin for Static Bootstrap Progress Bar?</title>
-		<link>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/#comments</comments>
 		<pubDate>Sun, 22 Jun 2014 03:41:10 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[jQuery]]></category>
 		<category><![CDATA[bootstrap]]></category>
 		<category><![CDATA[bootstrap progress bar]]></category>
 		<category><![CDATA[jquery]]></category>
 
 		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=20</guid>
-		<description><![CDATA[Bootstrap Provides variety of Static Progress Bars. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar &#60;div class="container"&#62; &#60;div id="myProgressbar1"&#62; &#60;div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"&#62; &#60;span/&#62; &#60;/div&#62; &#60;/div&#62; &#60;/div&#62; The jQuery Plugin to manipulate the progress bar- !function ($) { //Class Definition [&#8230;]]]></description>
+		<description><![CDATA[Bootstrap Provides variety of Static Progress Bars. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar &#60;div class="container"&#62; &#60;div id="myProgressbar1"&#62; &#60;div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"&#62; &#60;span/&#62; &#60;/div&#62; &#60;/div&#62; &#60;/div&#62; The jQuery Plugin to manipulate the progress bar- !function ($) { //Class Definition &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/" class="more-link">Continue reading<span class="screen-reader-text"> "jQuery Plugin for Static Bootstrap Progress Bar?"</span></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">Bootstrap Provides variety of <a href="http://getbootstrap.com/components/#progress" target="_blank">Static Progress Bars</a>. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar</p>
 <pre><code>&lt;div class="container"&gt;
    &lt;div id="myProgressbar1"&gt;
@@ -1393,15 +1384,15 @@ public String home(Model model) {
 <pre><code>$('#myProgressbar1').progressbar('reset');
 </code></pre>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/jquery-plugin-for-bootstrap-progress-bar/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/feed/</wfw:commentRss>
 		<slash:comments>27</slash:comments>
 		</item>
 		<item>
 		<title>jQuery best practices</title>
-		<link>http://patilvijayg.synology.me/wordpress/jquery-best-practices/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/jquery-best-practices/#comments</comments>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/#comments</comments>
 		<pubDate>Mon, 07 Apr 2014 16:27:19 +0000</pubDate>
-		<dc:creator><![CDATA[patilvijayg]]></dc:creator>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
 				<category><![CDATA[jQuery]]></category>
 		<category><![CDATA[Ajax]]></category>
 		<category><![CDATA[Chaining]]></category>
@@ -1411,13 +1402,13 @@ public String home(Model model) {
 		<category><![CDATA[Selectors]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.com/wordpress/?p=105</guid>
-		<description><![CDATA[Including jQuery and Plugin libraries Use Google CDN &#60;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&#62;&#60;/script&#62; &#60;script&#62;window.jQuery &#124;&#124; document.write('&#60;script src="js/jquery-1.11.1.min.js" type="text/javascript"&#62;&#60;\/script&#62;')&#60;/script&#62; Implement a fallback to your locally hosted library of same version as shown above. Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above. If possible, keep all your javascript and jquery includes at the bottom of your page. [&#8230;]]]></description>
+		<description><![CDATA[Including jQuery and Plugin libraries Use Google CDN &#60;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&#62;&#60;/script&#62; &#60;script&#62;window.jQuery &#124;&#124; document.write('&#60;script src="js/jquery-1.11.1.min.js" type="text/javascript"&#62;&#60;/script&#62;')&#60;/script&#62; Implement a fallback to your locally hosted library of same version as shown above. Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above. If possible, keep all your javascript and jquery includes at the bottom of your page. &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/" class="more-link">Continue reading<span class="screen-reader-text"> "jQuery best practices"</span></a>]]></description>
 				<content:encoded><![CDATA[<h2>Including jQuery and Plugin libraries</h2>
 <ul>
 <li>Use Google CDN</li>
 </ul>
 <pre><code>&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></pre>
+&lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;')&lt;/script&gt;</code></pre>
 <ul>
 <li>Implement a fallback to your locally hosted library of same version as shown above.</li>
 <li>Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above.</li>
@@ -1710,7 +1701,7 @@ document.getElementById("myId");
 <li>Modern Browser native alternatives to jQuery: http://youmightnotneedjquery.com</li>
 </ul>
 ]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/jquery-best-practices/feed/</wfw:commentRss>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/feed/</wfw:commentRss>
 		<slash:comments>17</slash:comments>
 		</item>
 	</channel>
