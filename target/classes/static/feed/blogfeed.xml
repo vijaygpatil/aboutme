@@ -12,12 +12,111 @@
 	<atom:link href="http://patilvijayg.synology.me/wordpress/index.php/feed/" rel="self" type="application/rss+xml" />
 	<link>http://patilvijayg.synology.me/wordpress</link>
 	<description>Tips and Tricks for Software Developers</description>
-	<lastBuildDate>Thu, 21 Apr 2016 03:11:13 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 24 Apr 2016 00:52:07 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.5</generator>
 	<item>
+		<title>Gradle plugin to package and deploy release</title>
+		<link>http://patilvijayg.synology.me/wordpress/index.php/2016/04/23/gradle-plugin-to-package-and-deploy-release/</link>
+		<comments>http://patilvijayg.synology.me/wordpress/index.php/2016/04/23/gradle-plugin-to-package-and-deploy-release/#respond</comments>
+		<pubDate>Sat, 23 Apr 2016 23:05:57 +0000</pubDate>
+		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[GIT]]></category>
+		<category><![CDATA[gradle]]></category>
+		<category><![CDATA[plugin]]></category>
+		<category><![CDATA[release]]></category>
+
+		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=305</guid>
+		<description><![CDATA[Maven has served us well as a build tool and dependency manager, however as a tool it has not kept up with our rapidly evolving development processes. For example, when we switched to Git we were no longer able to use the maven-release-plugin because while that plugin is supposed to support Git it makes several assumptions about the release process which are not valid for everyones release process. Additionally, using Maven requires you to follow a specific set of conventions <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2016/04/23/gradle-plugin-to-package-and-deploy-release/"> <i class="genericon genericon-next"></i></a>]]></description>
+				<content:encoded><![CDATA[<p>Maven has served us well as a build tool and dependency manager, however as a tool it has not kept up with our rapidly evolving development processes. For example, when we switched to Git we were no longer able to use the maven-release-plugin because while that plugin is supposed to support Git it makes several assumptions about the release process which are not valid for everyones release process. Additionally, using Maven requires you to follow a specific set of conventions and you can&#8217;t really go outside of those conventions. Gradle is a newer build tool which is supposed to be more powerful than Maven and which should allow us to customize the build process.</p>
+<p>To use this plugin in your build, first you must define a file in &#8216;~/.gradle/&#8217; called &#8216;init.gradle&#8217;.</p>
+<p><strong>~/.gradle/init.gradle</strong></p>
+<pre>allprojects {
+    // Configure Maven Repositories to Lookup Dependencies
+    ext.RepositoryConfiguration = {
+        mavenLocal()
+        maven {
+            url = uri('release-repository-url')
+        }
+        maven {
+            url = uri('snapshot-repository-url')
+        }
+    }
+    buildscript.repositories RepositoryConfiguration
+    repositories RepositoryConfiguration
+  
+    // Configure
+    ext.releaseRepositoryDeployer = [
+        url: "release-repository-url",
+        userName: 'release-username',
+        password: '*******'
+    ]
+    ext.snapshotRepositoryDeployer = [
+        url: "snapshot-repository-url",
+        userName: 'snapshot-username',
+        password: '*******'
+    ]
+}</pre>
+<p>Configure your project information in your gradle.properties</p>
+<p><strong>gradle.properties</strong></p>
+<pre>group=theGroupId
+artifact=theArtifactName
+version=1.0.0-SNAPSHOT
+name=A human friendly name
+description=Some description of the artifact</pre>
+<p>Next you need to configure the plugin in your build.gradle.</p>
+<p><strong>build.gradle</strong></p>
+<pre>buildscript {
+	dependencies {
+		classpath 'theGroupId:theArtifactName:1.0.0-SNAPSHOT'
+	}
+}
+
+apply plugin: 'theArtifactName'</pre>
+<p>Finally, add relevant dependencies in &#8216;build.gradle&#8217;. In this example, we first include the spring-cloud-starter-parent for spring-cloud versions before configuring dependencies.</p>
+<p><strong>build.gradle</strong></p>
+<pre>dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-starter-parent:Brixton.M4'
+	}
+	dependencies {
+		dependency 'com.gemstone.gemfire:gemfire:7.0.2'
+	}
+}
+
+configurations {
+	all*.exclude module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+
+	// Spring Boot
+	compile 'org.springframework.boot:spring-boot-starter'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	compile 'org.springframework.boot:spring-boot-starter-actuator'
+	compile 'org.springframework.boot:spring-boot-starter-log4j'
+	providedRuntime 'org.slf4j:slf4j-api'
+	providedRuntime 'org.slf4j:slf4j-log4j12'
+	providedRuntime 'org.slf4j:jcl-over-slf4j'
+	providedRuntime 'log4j:log4j'
+
+	...
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.springframework.security:spring-security-test'
+}</pre>
+<pre>gradle bootRun // Run the application
+gradle test // Execute tests
+gradle releaseGitPush // Package and deploy a release (requires correct repository credentials in ~/.gradle/init.gradle)</pre>
+<p><a href="https://github.com/vijaygpatil/gradleReleaseGitPushPlugin" target="_blank">Clone</a> the plugin. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2016/04/23/gradle-plugin-to-package-and-deploy-release/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Configure H2 Database for Spring Boot App</title>
 		<link>http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/</link>
 		<comments>http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/#respond</comments>
@@ -29,7 +128,7 @@
 		<category><![CDATA[Spring H2 Database]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=265</guid>
-		<description><![CDATA[H2 Database The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run. If you used a database &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/" class="more-link">Continue reading<span class="screen-reader-text"> "Configure H2 Database for Spring Boot App"</span></a>]]></description>
+		<description><![CDATA[H2 Database The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run. If you used a database like Oracle or MySQL, now you’ve introduced an external dependency. Your build is no longer portable. If you wanted to do the build under Jekins <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2016/04/09/configure-h2-database-for-spring-boot-app/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<h3>H2 Database</h3>
 <p>The H2 database is a popular database to use when developing Spring applications. H2 is written in Java and is easily runs as an embedded in-memory database. Because it is an embedded in memory database, it makes your build portable. Your build will run anywhere Maven will run.</p>
 <p>If you used a database like Oracle or MySQL, now you’ve introduced an external dependency. Your build is no longer portable. If you wanted to do the build under Jekins on a build server, you’d need to install the database on that server or provide a configuration pointing to a database elsewhere.</p>
@@ -151,7 +250,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		<category><![CDATA[RESTFul]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=253</guid>
-		<description><![CDATA[For consuming REST Services using front-end JavaScript frameworks, we recommend using jQuery. jQuery has a robust AJAX functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher. Here is a sample template for making service calls using AJAX in jQuery. There are more options in jQuery.ajax then what are listed below, you can use &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/" class="more-link">Continue reading<span class="screen-reader-text"> "Consuming REST Service with JavaScript"</span></a>]]></description>
+		<description><![CDATA[For consuming REST Services using front-end JavaScript frameworks, we recommend using jQuery. jQuery has a robust AJAX functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher. Here is a sample template for making service calls using AJAX in jQuery. There are more options in jQuery.ajax then what are listed below, you can use them based on your needs. Sample jQuery.ajax template for making REST Service Calls $.ajax({     // The type of request to make ("POST" or "GET"), default <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/27/consuming-rest-service-with-javascript/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<p>For consuming REST Services using front-end JavaScript frameworks, we recommend using <a class="external-link" href="http://jquery.com/" rel="nofollow">jQuery</a>. jQuery has a robust <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">AJAX</a> functionality built for making REST Service calls. We recommend jQuery version 1.5 (ideally 1.7) or higher.</p>
 <p>Here is a sample template for making service calls using AJAX in jQuery. There are more options in <a class="external-link" href="http://api.jquery.com/jQuery.ajax/" rel="nofollow">jQuery.ajax</a> then what are listed below, you can use them based on your needs.</p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
@@ -244,7 +343,7 @@ Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-cod
 		<category><![CDATA[PUT]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=171</guid>
-		<description><![CDATA[Terminology Resource A source of information that can be identified by a logical URL. Representation The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc. State The current condition of a resource. Transfer Movement of a resource, in some representational form. If the request method is &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/" class="more-link">Continue reading<span class="screen-reader-text"> "RESTful Service Development"</span></a>]]></description>
+		<description><![CDATA[Terminology Resource A source of information that can be identified by a logical URL. Representation The form in which to return a resource. Varies by request. Examples: XML, JSON, HTML, text, PDF, images, etc. State The current condition of a resource. Transfer Movement of a resource, in some representational form. If the request method is something other than GET, the request may also change the state of the resource. URL Uniform Resource Locator &#8211; the (web) location at which a <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/11/25/restful-service-development/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<h3>Terminology</h3>
 <table>
 <tbody>
@@ -482,7 +581,7 @@ Refer <a href="http://patilvijayg.synology.me/wordpress/rest-response-status-cod
 		<category><![CDATA[mergetool]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=181</guid>
-		<description><![CDATA[Getting Help There are basically two ways on the command line to get help. Git will print a short overview of the call syntax as well as the most important options for you. git [command] -h The second one is having a look at the manpages themselves. git help [command] Git Prompt for bash There &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/" class="more-link">Continue reading<span class="screen-reader-text"> "Useful Git Tips Tricks and Workflow"</span></a>]]></description>
+		<description><![CDATA[Getting Help There are basically two ways on the command line to get help. Git will print a short overview of the call syntax as well as the most important options for you. git [command] -h The second one is having a look at the manpages themselves. git help [command] Git Prompt for bash There are many available. I like this one in particular. You have to use Homebrew to install this. brew install bash-git-prompt After installing bash-git-prompt, copy following <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/10/15/useful-git-tips-tricks-and-workflow/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<h2>Getting Help</h2>
 <p>There are basically two ways on the command line to get help.<br />
 Git will print a short overview of the call syntax as well as the most important options for you.</p>
@@ -873,7 +972,7 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 		<category><![CDATA[git workflow]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=218</guid>
-		<description><![CDATA[Git Workflow Branches develop Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server. It is up to the scrum team/project team whether or not the develop branch is locked down. It may be appropriate &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/" class="more-link">Continue reading<span class="screen-reader-text"> "Git workflow and procedures"</span></a>]]></description>
+		<description><![CDATA[Git Workflow Branches develop Develop is the mainline development branch, code that is in develop will be built as part of continuous integration and should be working code and deployable to a development server. It is up to the scrum team/project team whether or not the develop branch is locked down. It may be appropriate for a limited number of developers to have permissions to merge to develop if you wish to control what is available for integration testing. master <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/09/20/git-workflow-and-procedures/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<h2>Git Workflow</h2>
 <p><a href="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png"><img class="alignnone size-full wp-image-214" src="http://patilvijayg.synology.me/wordpress/wp-content/uploads/2016/04/screen-shot-2016-03-26-at-9-54-37-am.png" alt="Screen Shot 2016-03-26 at 9.54.37 AM" width="1668" height="580" /></a></p>
 <h3>Branches</h3>
@@ -933,7 +1032,7 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 		<category><![CDATA[status code]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=162</guid>
-		<description><![CDATA[SUCCESSFUL STATUS CODES (2XX) Code Meaning Description Examples 200 OK The request was successful GET /customers/&#60;customerid&#62; successfully found a customer and returned it in the response body. 201 Created The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource. POST /customers successfully created &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/" class="more-link">Continue reading<span class="screen-reader-text"> "REST Response Status Codes"</span></a>]]></description>
+		<description><![CDATA[SUCCESSFUL STATUS CODES (2XX) Code Meaning Description Examples 200 OK The request was successful GET /customers/&#60;customerid&#62; successfully found a customer and returned it in the response body. 201 Created The resource was successfully created. Confirms a success when creating a new subscription, etc. Return Location header URI of newly created resource. POST /customers successfully created a customer and may return it in the response body, but has to return the Location header. 202 Accepted The request was accepted. This can <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/08/26/rest-response-status-codes/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<p><strong>SUCCESSFUL STATUS CODES (2XX)</strong></p>
 <table class="confluenceTable">
 <tbody>
@@ -1137,7 +1236,7 @@ Please refer to this blog to know more about <a href="http://patilvijayg.synolog
 		<category><![CDATA[Testing]]></category>
 
 		<guid isPermaLink="false">http://patilvijayg.synology.me/wordpress/?p=138</guid>
-		<description><![CDATA[In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle). Step 1: Add Swagger dependencies in your pom.xml pom.xml &#60;properties&#62; &#60;springfox.version&#62;2.1.2&#60;/springfox.version&#62; &#60;/properties&#62; &#60;dependency&#62; &#60;!-- API Documentation Generation --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger2&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; &#60;dependency&#62; &#60;!-- API Documentation Web UI --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger-ui&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; Step 2: Use &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/" class="more-link">Continue reading<span class="screen-reader-text"> "Swagger UI for your REST APIs using Springfox (Swagger spec 2.0) and Spring Boot"</span></a>]]></description>
+		<description><![CDATA[In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle). Step 1: Add Swagger dependencies in your pom.xml pom.xml &#60;properties&#62; &#60;springfox.version&#62;2.1.2&#60;/springfox.version&#62; &#60;/properties&#62; &#60;dependency&#62; &#60;!-- API Documentation Generation --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger2&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; &#60;dependency&#62; &#60;!-- API Documentation Web UI --&#62; &#60;groupId&#62;io.springfox&#60;/groupId&#62; &#60;artifactId&#62;springfox-swagger-ui&#60;/artifactId&#62; &#60;version&#62;${springfox.version}&#60;/version&#62; &#60;/dependency&#62; Step 2: Use EnableSwagger2 Annotation for Spring Boot Application @SpringBootApplication @EnableSwagger2 @EnableAspectJAutoProxy @Import(value = { Configuration.class }) public class ABCServiceApplication extends SpringBootServletInitializer { public static void main(String... args) <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2015/06/30/swagger-ui-for-your-rest-apis-using-springfox-swagger-spec-2-0-and-spring-boot/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">In order to use swagger for you REST APIs, you need to add dependency to a build file (Maven or Gradle).</p>
 <p style="text-align: justify;"><strong>Step 1: Add Swagger dependencies in your pom.xml</strong></p>
 <p style="text-align: justify;">pom.xml</p>
@@ -1217,7 +1316,7 @@ public class ABCServiceApplication extends SpringBootServletInitializer {
 		<category><![CDATA[ThymeleafViewResolver]]></category>
 
 		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=55</guid>
-		<description><![CDATA[Thymeleaf is a Java library. It is an XML / XHTML / HTML5 template engine (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the view layer of web applications, but it can process any XML file even in offline environments. It provides an optional module for &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/" class="more-link">Continue reading<span class="screen-reader-text"> "Integrate Thymeleaf with Spring"</span></a>]]></description>
+		<description><![CDATA[Thymeleaf is a Java library. It is an XML / XHTML / HTML5 template engine (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the view layer of web applications, but it can process any XML file even in offline environments. It provides an optional module for integration with Spring MVC, so that you can use it as a complete substitute of JSP in your applications made with this technology, even with HTML5. <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2014/08/22/how-to-integrate-thymeleaf-with-spring/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">Thymeleaf is a Java library. It is an <b>XML / XHTML / HTML5 template engine</b> (extensible to other formats) that can work both in web and non-web environments. It is better suited for serving XHTML/HTML5 at the <i>view layer</i> of web applications, but it can process any XML file even in offline environments.</p>
 <p style="text-align: justify;">It provides an optional module for integration with <b>Spring MVC</b>, so that you can use it as a complete substitute of JSP in your applications made with this technology, even with HTML5.</p>
 <p style="text-align: justify;">Here is the step-by-step guide to integrate Thymeleaf with Spring.</p>
@@ -1326,7 +1425,7 @@ public String home(Model model) {
 		<category><![CDATA[jquery]]></category>
 
 		<guid isPermaLink="false">http://192.168.1.87/wordpress/?p=20</guid>
-		<description><![CDATA[Bootstrap Provides variety of Static Progress Bars. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar &#60;div class="container"&#62; &#60;div id="myProgressbar1"&#62; &#60;div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"&#62; &#60;span/&#62; &#60;/div&#62; &#60;/div&#62; &#60;/div&#62; The jQuery Plugin to manipulate the progress bar- !function ($) { //Class Definition &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/" class="more-link">Continue reading<span class="screen-reader-text"> "jQuery Plugin for Static Bootstrap Progress Bar?"</span></a>]]></description>
+		<description><![CDATA[Bootstrap Provides variety of Static Progress Bars. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar &#60;div class="container"&#62; &#60;div id="myProgressbar1"&#62; &#60;div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"&#62; &#60;span/&#62; &#60;/div&#62; &#60;/div&#62; &#60;/div&#62; The jQuery Plugin to manipulate the progress bar- !function ($) { //Class Definition var Progressbar = function (element) { this.$element = $(element); }; //Progressbar Update Function Progressbar.prototype.update = function (value) { var $div = this.$element.find('div'); var $span = <a class="gs_rmmore" href="http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/"> <i class="genericon genericon-next"></i></a>]]></description>
 				<content:encoded><![CDATA[<p style="text-align: justify;">Bootstrap Provides variety of <a href="http://getbootstrap.com/components/#progress" target="_blank">Static Progress Bars</a>. This simple jQuery plugin will update the value of the progress bar. Lets start by creating a default progress bar</p>
 <pre><code>&lt;div class="container"&gt;
    &lt;div id="myProgressbar1"&gt;
@@ -1386,323 +1485,6 @@ public String home(Model model) {
 ]]></content:encoded>
 			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2014/06/21/jquery-plugin-for-bootstrap-progress-bar/feed/</wfw:commentRss>
 		<slash:comments>27</slash:comments>
-		</item>
-		<item>
-		<title>jQuery best practices</title>
-		<link>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/</link>
-		<comments>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/#comments</comments>
-		<pubDate>Mon, 07 Apr 2014 16:27:19 +0000</pubDate>
-		<dc:creator><![CDATA[Vijay Patil]]></dc:creator>
-				<category><![CDATA[jQuery]]></category>
-		<category><![CDATA[Ajax]]></category>
-		<category><![CDATA[Chaining]]></category>
-		<category><![CDATA[DOM]]></category>
-		<category><![CDATA[Events]]></category>
-		<category><![CDATA[jquery]]></category>
-		<category><![CDATA[Selectors]]></category>
-
-		<guid isPermaLink="false">http://patilvijayg.com/wordpress/?p=105</guid>
-		<description><![CDATA[Including jQuery and Plugin libraries Use Google CDN &#60;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&#62;&#60;/script&#62; &#60;script&#62;window.jQuery &#124;&#124; document.write('&#60;script src="js/jquery-1.11.1.min.js" type="text/javascript"&#62;&#60;/script&#62;')&#60;/script&#62; Implement a fallback to your locally hosted library of same version as shown above. Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above. If possible, keep all your javascript and jquery includes at the bottom of your page. &#8230; <a href="http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/" class="more-link">Continue reading<span class="screen-reader-text"> "jQuery best practices"</span></a>]]></description>
-				<content:encoded><![CDATA[<h2>Including jQuery and Plugin libraries</h2>
-<ul>
-<li>Use Google CDN</li>
-</ul>
-<pre><code>&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;')&lt;/script&gt;</code></pre>
-<ul>
-<li>Implement a fallback to your locally hosted library of same version as shown above.</li>
-<li>Use protocol-relative/protocol-independent URL(leave http: or https: out) as shown above.</li>
-<li>If possible, keep all your javascript and jquery includes at the bottom of your page.</li>
-<li>Do not use jQuery version 2.x if you support Internet Explorer 6/7/8.</li>
-<li>For new web-apps, if you do not have any plugin compatibility issue, it&#8217;s highly recommended to use the latest jQuery version.</li>
-<li>When loading jQuery from CDN&#8217;s always specify the complete version number you want to load. Example: 1.11.0 as opposed to 1.11 or just 1.</li>
-<li>Do Not load multiple jQuery versions.</li>
-<li>If you are using other libraries like Prototype, MooTools, Zepto etc. that uses $ sign as well, try not to use $ for calling jQuery functions and instead use jQuery simply. You can return control of $ back to other library with a call to $.noConflict().</li>
-<li>For advanced browser feature detection, use <a href="http://modernizr.com/" target="_blank">Modernizr</a></li>
-</ul>
-<h2>jQuery Variables</h2>
-<ul>
-<li>All variables that are used to store/cache jQuery objects should have a name prefixed with a $.</li>
-<li>Always cache your jQuery selector returned objects in variables for reuse.</li>
-</ul>
-<pre><code>var $myDiv = $("#myDiv");
-$myDiv.click(function(){...});</code></pre>
-<ul>
-<li>Use camel case for naming variables.</li>
-</ul>
-<h2>Selectors</h2>
-<ul>
-<li>Use ID selector whenever possible. It is the fastest because they are handled using document.getElementById().</li>
-</ul>
-<pre><code>var $products = $(".products"); // BAD, this'll scan all DOM elements for "products" class.
-var $products = $("div.products"); // GOOD, this'll only scan DIV elements for "products" class.
-</code></pre>
-<ul>
-<li>Use find for Id-&gt;Child nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine. <a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>var $productIds = $("#products div.id"); // BAD, a nested query for Sizzle selector engine
-var $productIds = $("#products").find("div.id"); // GOOD, #products is already selected by document.getElementById() so only div.id needs to go through Sizzle selector engine
-</code></pre>
-<ul>
-<li>Be specific on the right-hand side of your selector, and less specific on the left.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>// Unoptimized
-$("div.data .gonzalez");
-// Optimized
-$(".data td.gonzalez");
-</code></pre>
-<ul>
-<li>Avoid Excessive Specificity.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>$(".data table.attendees td.gonzalez");
-
-// Better: Drop the middle if possible.
-$(".data td.gonzalez");
-</code></pre>
-<ul>
-<li>Give your Selectors a Context.</li>
-</ul>
-<pre><code>$('.class'); // SLOWER because it has to traverse the whole DOM for .class
-$('.class', '#class-container'); // FASTER because now it only looks under class-container.
-</code></pre>
-<ul>
-<li>Avoid Universal Selectors.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>$('div.container &gt; *'); // BAD
-$('div.container').children(); // BETTER
-</code></pre>
-<ul>
-<li>Avoid Implied Universal Selectors. When you leave off the selector, the universal selector (*) is still implied.<a href="http://learn.jquery.com/performance/optimize-selectors/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>$('div.someclass :radio'); // BAD
-$('div.someclass input:radio'); // GOOD
-</code></pre>
-<ul>
-<li>Don’t Descend Multiple IDs or nest when selecting an ID. ID-only selections are handled using document.getElementById() so don&#8217;t mix them with other selectors.</li>
-</ul>
-<pre><code>$('#outer #inner'); // BAD
-$('div#inner'); // BAD
-$('.outer-container #inner'); // BAD
-$('#inner'); // GOOD, only calls document.getElementById()
-</code></pre>
-<h2>DOM Manipulation</h2>
-<ul>
-<li>Always detach any existing element before manipulation and attach it back after manipulating it. <a href="http://learn.jquery.com/performance/detach-elements-before-work-with-them/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>var $myList = $("#list-container &gt; ul").detach();
-//...a lot of complicated things on $myList
-$myList.appendTo("#list-container");
-</code></pre>
-<ul>
-<li>Use string concatenation or array.join() over .append(). <a href="http://learn.jquery.com/performance/append-outside-loop/" target="_blank">More Info</a>. http://jsperf.com/jquery-append-vs-string-concat</li>
-</ul>
-<pre><code>// BAD
-var $myList = $("#list");
-for(var i = 0; i &lt; 10000; i++){
-$myList.append("&lt;li&gt;"+i+"&lt;/li&gt;");
-}
-
-// GOOD
-var $myList = $("#list");
-var list = "";
-for(var i = 0; i &lt; 10000; i++){
-list += "&lt;li&gt;"+i+"&lt;/li&gt;";
-}
-$myList.html(list);
-
-// EVEN FASTER
-var array = [];
-for(var i = 0; i &lt; 10000; i++){
-array[i] = "&lt;li&gt;"+i+"&lt;/li&gt;";
-}
-$myList.html(array.join(''));
-</code></pre>
-<ul>
-<li>Don’t Act on Absent Elements. <a href="http://learn.jquery.com/performance/dont-act-on-absent-elements/" target="_blank">More Info</a></li>
-</ul>
-<pre><code>// BAD: This runs three functions before it realizes there's nothing in the selection
-$("#nosuchthing").slideUp();
-
-// GOOD
-var $mySelection = $("#nosuchthing");
-if ($mySelection.length) {
-    $mySelection.slideUp();
-}
-</code></pre>
-<h2>Events</h2>
-<ul>
-<li>Use only one Document Ready handler per page. It makes it easier to debug and keep track of the behavior flow.</li>
-<li>Document ready event handler should not be an anonymous function. Anonymous functions are not reusable and you cannot write tests for them.</li>
-</ul>
-<pre><code>$(function(){ ... }); // BAD: You can never reuse or write a test for this function.
-
-// GOOD
-$(initPage); // or $(document).ready(initPage);
-function initPage(){
-	// Page load event where you can initialize values and call other initializers.
-}</code></pre>
-<ul>
-<li>Document ready event handlers should be included from external files and inline javascript should call the ready handle after any initial setup.</li>
-</ul>
-<pre><code>&lt;script src="my-document-ready.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-// Any global variable set-up that might be needed.
-$(document).ready(initPage);
-&lt;/script&gt;</code></pre>
-<ul>
-<li>DO NOT use anonymous functions to attach events. Anonymous functions are not reusable and you cannot write tests for them.</li>
-</ul>
-<pre><code>$("#myLink").on("click", function(){...}); // BAD
-
-// GOOD
-function myLinkClickHandler(){...}
-$("#myLink").on("click", myLinkClickHandler);
-</code></pre>
-<ul>
-<li>DO NOT use behavioral markup in HTML (JavaScript inlining), these are debugging nightmares. Always bind events with jQuery to be consistent so it&#8217;s easier to attach and remove events dynamically.</li>
-</ul>
-<pre><code>&lt;a id="myLink" href="#" onclick="myEventHandler();"&gt;my link&lt;/a&gt; &lt;!-- BAD --&gt;
-$("#myLink").on("click", myEventHandler); // GOOD 
-</code></pre>
-<ul>
-<li>When possible, use custom namespace for events. It&#8217;s easier to unbind the exact event that you attached without affecting other events bound to the DOM element.</li>
-</ul>
-<pre><code>$("#myLink").on("click.mySpecialClick", myEventHandler); // GOOD
-// Later on it's easier to unbind just your click event
-$("#myLink").unbind("click.mySpecialClick");
-</code></pre>
-<h2>Ajax</h2>
-<ul>
-<li>Avoid using .getJson() or .get(), simply use the $.ajax() as that&#8217;s what gets called internally.</li>
-<li>DO NOT use http requests on https sites. Prefer schemaless URLs (leave the protocol http/https out of your URL)</li>
-<li>DO NOT put request parameters in the URL, send them using data object setting.</li>
-</ul>
-<pre><code>// Less readable...
-$.ajax({
-	url: "something.jsp?param1=test1&amp;param2=test2",
-	....
-});
-
-// More readable...
-$.ajax({
-	url: "something.jsp",
-	data: { param1: test1, param2: test2 }
-});
-</code></pre>
-<ul>
-<li>Always specify the dataType setting so it&#8217;s easier to know what kind of data you are working with. (See Ajax Template example below)</li>
-<li>Use Delegated event handlers for attaching events to content loaded using Ajax. Delegated events have the advantage that they can process events from descendant elements that are added to the document at a later time (example Ajax).<a href="http://api.jquery.com/on/#direct-and-delegated-events" target="_blank">More Info</a></li>
-</ul>
-<pre><code>$("#parent-container").on("click", "a", delegatedClickHandlerForAjax);
-</code></pre>
-<ul>
-<li>User Promise Interface:</li>
-</ul>
-<pre><code>$.ajax({ ... }).then(successHandler, failureHandler);
-
-// OR
-var jqxhr = $.ajax({ ... });
-jqxhr.done(successHandler);
-jqxhr.fail(failureHandler);
-</code></pre>
-<ul>
-<li>Sample Ajax Template:</li>
-</ul>
-<pre><code>var jqxhr = $.ajax({
-    url: url,
-    type: "GET", // default is GET but you can use other verbs based on your needs.
-    cache: true, // default is true, but false for dataType 'script' and 'jsonp', so set it on need basis.
-    data: {}, // add your request parameters in the data object.
-    dataType: "json", // always specify the dataType for future reference
-    jsonp: "callback", // only specify this to match the name of callback parameter your API is expecting for JSONP requests.
-    statusCode: { // if you want to handle specific error codes, use the status code mapping settings.
-        404: handler404,
-		500: handler500
-    }
-});
-jqxhr.done(successHandler);
-jqxhr.fail(failureHandler);
-</code></pre>
-<h2>Chaining</h2>
-<ul>
-<li>Use chaining as an alternative to variable caching and multiple selector calls.</li>
-</ul>
-<pre><code>$("#myDiv").addClass("error").show();
-</code></pre>
-<ul>
-<li>Whenever the chain grows over 3 links or gets complicated because of event assignment, use appropriate line breaks and indentation to make the code readable.</li>
-</ul>
-<pre><code>$("#myLink")
-	.addClass("bold")
-	.on("click", myClickHandler)
-	.on("mouseover", myMouseOverHandler)
-	.show();
-</code></pre>
-<ul>
-<li>For long chains it is acceptable to cache intermediate objects in a variable.</li>
-</ul>
-<h2>Miscellaneous</h2>
-<ul>
-<li>Use Object literals for parameters.</li>
-</ul>
-<pre><code>$myLink.attr("href", "#").attr("title", "my link").attr("rel", "external"); // BAD
-// GOOD
-$myList.attr({
-    href: "#",
-    title: "my link",
-    rel: "external"
-});
-</code></pre>
-<ul>
-<li>Do not mix CSS with jQuery.</li>
-</ul>
-<pre><code>$("#mydiv").css({'color':red, 'font-weight':'bold'}); // BAD
-.error { color: red; font-weight: bold; } /* GOOD */
-$("#mydiv").addClass("error"); // GOOD
-</code></pre>
-<ul>
-<li>Don’t Use Deprecated Methods. It is important to always keep an eye on deprecated methods for each new version and try avoid using them. <a href="http://api.jquery.com/category/deprecated/" target="_blank">Click here </a>for a list of deprecated methods.</li>
-<li>Combine jQuery with Native JavaScript when needed. See the performance difference for the example given below below: http://jsperf.com/document-getelementbyid-vs-jquery/3</li>
-</ul>
-<pre><code>$("#myId"); // is still little slower than...
-document.getElementById("myId");
-</code></pre>
-<h2>Recommendations</h2>
-<ul>
-<li>If possible, wrap your jQuery code inside a self-executing function and pass all the required global objects (like jQuery, window, document) for unadulterated access. This way you can use the $ sign inside your closure.</li>
-</ul>
-<pre><code>(function($, window, document, undefined){
-    // Here you have access to the original jQuery, window, document objects along with undefined for easy comparison.
-})(jQuery, window, document);
-</code></pre>
-<ul>
-<li>Avoid unnecessary use of jQuery when you can get away by using native methods. A few examples:
-<ol>
-<li>A form with no dynamic information should have a regular submit button, not $(&#8220;#myForm&#8221;).submit();</li>
-<li>document.getElementById(&#8220;myId&#8221;) in favor of $(&#8220;#myId&#8221;)</li>
-<li>el.style.display = &#8216;none&#8217; in favor of $(el).hide()</li>
-<li>el.style.display = &#8221; in favor of $(el).show()</li>
-<li>el.getAttribute(&#8216;tabindex&#8217;) in favor of $(el).attr(&#8216;tabindex&#8217;)</li>
-</ol>
-</li>
-<li>If you are only targeting modern browsers (especially IE9 and above), most of the basic functionality is already built into HTML5, CSS3 and ECMAScript 5/6. A few examples:
-<ol>
-<li>var elements = document.querySelectorAll(selector) in favor of $(selector)</li>
-<li>el.parentNode in favor of $(el).parent()</li>
-<li>getComputedStyle(el)[ruleName] in favor of $(el).css(ruleName)</li>
-<li>Here are a lot more: http://youmightnotneedjquery.com</li>
-</ol>
-</li>
-</ul>
-<h2>Resources</h2>
-<ul>
-<li>jQuery API Docs: http://api.jquery.com/</li>
-<li>Mozilla Developer Network: https://developer.mozilla.org/en-US/docs/Web</li>
-<li>Modern Browser native alternatives to jQuery: http://youmightnotneedjquery.com</li>
-</ul>
-]]></content:encoded>
-			<wfw:commentRss>http://patilvijayg.synology.me/wordpress/index.php/2014/04/07/jquery-best-practices/feed/</wfw:commentRss>
-		<slash:comments>17</slash:comments>
 		</item>
 	</channel>
 </rss>
