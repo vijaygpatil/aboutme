@@ -140,6 +140,7 @@ $(document).ready(function() {
 	$('#page-profile').waypoint(function(direction) {
 		if (direction == 'down') {
 			$('#page-profile-facebook').css( "display", "block" ).addClass('animated fadeInLeftBig');
+			$('#page-profile-wordpress').css( "display", "block" ).addClass('animated fadeInLeftBig');
 			$('#page-profile-linkedin').css( "display", "block" ).addClass('animated fadeInLeftBig');
 		}
 		},{	offset : '25%',

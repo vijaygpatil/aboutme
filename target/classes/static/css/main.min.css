@@ -57,6 +57,7 @@ h4{font-size:15px !important;}
 .interest-logo{text-align:right;}
 #myAge{opacity:0.80;}
 #page-profile-facebook{display:none;}
+#page-profile-wordpress{display:none;}
 #page-profile-linkedin{display:none;}
 .modal-body img{display:block;margin:auto;width:100%;}
 #flashIcon{cursor:pointer;}
@@ -96,6 +97,7 @@ dl{margin-bottom:0px;}
 .btn-youtube{background-color:#C4302B;}
 .btn-github{background-color:#171515;}
 .btn-connect{background-color:#0E334C;}
+.btn-wordpress{background-color:#23282D;}
 .page-contact .social-icons{margin-bottom:auto;padding-top:0;}
 .page-contact .social-icons .btn{margin-right:0px;}
 .contact-me{background:transparent;color:#fff;text-transform:uppercase;border:0.15em solid #fff;-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}
