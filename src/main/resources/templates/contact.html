@@ -30,7 +30,9 @@
                                 <a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"/></a>
                                 <a target="_blank" href="https://plus.google.com/+VijayPatilG" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"/></a>
                             </div>
+                            <div class="well" id="map"></div>
                         </div>
+                        
                         <div class="col-lg-8  col-md-8  col-sm-7 col-xs-12">
                             <h3 class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3" th:text="#{contact.getInTouch.header}"/>
                             <form class="form-horizontal" id="contact-form" role="form" th:object="${emailObject}" th:action="@{/sendEmail}" method="post">

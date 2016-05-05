@@ -432,6 +432,10 @@ dl {
 	background-color: #171515;
 }
 
+.btn-connect {
+	background-color:navy;
+}
+
 .page-contact .social-icons {
 	margin-bottom: auto;
 	padding-top: 0;

@@ -38,7 +38,8 @@
 		<!-- StyleSheets -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
+		<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/> -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="//oss.maxcdn.com/devicons/1.8.0/css/devicons.min.css"/>
 		<link rel="stylesheet" th:href="@{/css/magnific-popup.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
@@ -88,6 +89,25 @@
 		<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
 		<script th:src="@{/js/jquery.isotope.min.js}"></script>
 
+		<script>
+      		function initMap() {
+        		var mapDiv = document.getElementById('map');
+        		var myLatLng = {lat: 38.89711187, lng: -94.76480484};
+        		var map = new google.maps.Map(mapDiv, {
+         			center: myLatLng,
+          			zoom: 15
+        		});
+        		
+        		var marker = new google.maps.Marker({
+        		    position: myLatLng,
+        		    map: map,
+        		    title: '15464 W 128th St Olathe KS 66062'
+  				});
+      		}
+    	</script>
+    	
+    	<script th:src="@{https://maps.googleapis.com/maps/api/js?callback=initMap}" async="async" defer="defer"></script>
+		
 		<script type="text/javascript">
 			var $buoop = {};
 			$buoop.ol = window.onload;

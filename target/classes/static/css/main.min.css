@@ -95,6 +95,7 @@ dl{margin-bottom:0px;}
 .btn-google{background-color:#D3492C;}
 .btn-youtube{background-color:#C4302B;}
 .btn-github{background-color:#171515;}
+.btn-connect{background-color:#0E334C;}
 .page-contact .social-icons{margin-bottom:auto;padding-top:0;}
 .page-contact .social-icons .btn{margin-right:0px;}
 .contact-me{background:transparent;color:#fff;text-transform:uppercase;border:0.15em solid #fff;-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}
@@ -153,6 +154,12 @@ dl{margin-bottom:0px;}
 .dev-icons {
 	font-size: -webkit-xxx-large;
 	text-align: center;
+}
+
+#map {
+	margin-top:20px;
+	width: 350px;
+	height: 250px;
 }
 
 @media print {
