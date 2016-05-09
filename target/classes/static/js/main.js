@@ -1,16 +1,13 @@
 $(document).ready(function() {
 	$.vegas('slideshow', {
 		backgrounds : [ {
-			src : 'http://i.imgur.com/5BgnGht.jpg',
+			src : 'http://imgur.com/UPiROrC.jpg',
 			fade : 3000
 		}, {
-			src : 'http://i.imgur.com/GkFGBcb.jpg',
+			src : 'http://imgur.com/2wWWbZY.jpg',
 			fade : 3000
 		}, {
-			src : 'http://i.imgur.com/OcyOdkY.jpg',
-			fade : 3000
-		}, {
-			src : 'http://i.imgur.com/oubI4OH.jpg',
+			src : 'http://imgur.com/uByJY2e.jpg',
 			fade : 3000
 		}]
 	});
