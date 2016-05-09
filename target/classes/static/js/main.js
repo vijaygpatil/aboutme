@@ -4,10 +4,16 @@ $(document).ready(function() {
 			src : 'http://imgur.com/UPiROrC.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/2wWWbZY.jpg',
+			src : 'http://imgur.com/9vxb1OO.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/uByJY2e.jpg',
+			src : 'http://imgur.com/6WjlNmh.jpg',
+			fade : 3000
+		}, {
+			src : 'http://imgur.com/y06RaS8.jpg',
+			fade : 3000
+		}, {
+			src : 'http://imgur.com/qD9bqwJ.jpg',
 			fade : 3000
 		}]
 	});
