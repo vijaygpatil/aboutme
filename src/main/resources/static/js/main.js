@@ -1,19 +1,19 @@
 $(document).ready(function() {
 	$.vegas('slideshow', {
 		backgrounds : [ {
-			src : 'http://imgur.com/UPiROrC.jpg',
+			src : '/img/profileImage/1.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/9vxb1OO.jpg',
+			src : '/img/profileImage/2.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/6WjlNmh.jpg',
+			src : '/img/profileImage/3.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/y06RaS8.jpg',
+			src : '/img/profileImage/4.jpg',
 			fade : 3000
 		}, {
-			src : 'http://imgur.com/qD9bqwJ.jpg',
+			src : '/img/profileImage/5.jpg',
 			fade : 3000
 		}]
 	});
