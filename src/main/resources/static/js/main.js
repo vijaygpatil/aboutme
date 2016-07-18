@@ -9,6 +9,12 @@ $(document).ready(function() {
 		}, {
 			src : '/img/profileImage/3.jpg',
 			fade : 3000
+		}, {
+			src : '/img/profileImage/4.jpg',
+			fade : 3000
+		}, {
+			src : '/img/profileImage/5.jpg',
+			fade : 3000
 		}]
 	});
 	
