@@ -1,19 +1,40 @@
 $(document).ready(function() {
 	$.vegas('slideshow', {
 		backgrounds : [ {
-			src : '/img/profileImage/1.jpg',
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/6.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/7.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/8.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/9.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/10.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/11.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/12.jpg',
+            fade : 3000
+        }, {
+			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/1.jpg',
 			fade : 3000
 		}, {
-			src : '/img/profileImage/2.jpg',
+			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/2.jpg',
 			fade : 3000
 		}, {
-			src : '/img/profileImage/3.jpg',
+			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/3.jpg',
 			fade : 3000
 		}, {
-			src : '/img/profileImage/4.jpg',
+			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/4.jpg',
 			fade : 3000
 		}, {
-			src : '/img/profileImage/5.jpg',
+			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/5.jpg',
 			fade : 3000
 		}]
 	});
