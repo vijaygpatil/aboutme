@@ -21,22 +21,7 @@ $(document).ready(function() {
         }, {
             src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/12.jpg',
             fade : 3000
-        }, {
-			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/1.jpg',
-			fade : 3000
-		}, {
-			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/2.jpg',
-			fade : 3000
-		}, {
-			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/3.jpg',
-			fade : 3000
-		}, {
-			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/4.jpg',
-			fade : 3000
-		}, {
-			src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/5.jpg',
-			fade : 3000
-		}]
+        }]
 	});
 	
 	$("#vegas-next").click(function(){
