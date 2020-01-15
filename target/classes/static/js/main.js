@@ -1,21 +1,57 @@
 $(document).ready(function() {
 	$.vegas('slideshow', {
 		backgrounds : [ {
-			src : '/img/profileImage/1.jpg',
-			fade : 3000
-		}, {
-			src : '/img/profileImage/2.jpg',
-			fade : 3000
-		}, {
-			src : '/img/profileImage/3.jpg',
-			fade : 3000
-		}, {
-			src : '/img/profileImage/4.jpg',
-			fade : 3000
-		}, {
-			src : '/img/profileImage/5.jpg',
-			fade : 3000
-		}]
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo01.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo02.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo03.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo04.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo05.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo06.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo07.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo08.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo09.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo10.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo11.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo12.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo13.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo14.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo15.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo16.jpg',
+            fade : 3000
+        }, {
+            src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo17.jpg',
+            fade : 3000
+        }]
 	});
 	
 	$("#vegas-next").click(function(){

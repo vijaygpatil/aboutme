@@ -1,3 +1,5 @@
+com/patilvijayg/aboutme/controller/RootController.class
 com/patilvijayg/aboutme/controller/HomeController.class
 com/patilvijayg/aboutme/domain/EmailObject.class
+com/patilvijayg/aboutme/controller/SmtpMailSender.class
 com/patilvijayg/AboutmeApplication.class
