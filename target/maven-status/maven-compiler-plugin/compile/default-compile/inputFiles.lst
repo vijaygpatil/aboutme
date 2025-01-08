@@ -1,5 +1,5 @@
-/Users/i861347/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/RootController.java
-/Users/i861347/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/SmtpMailSender.java
-/Users/i861347/IdeaProjects/aboutme/src/main/java/com/patilvijayg/AboutmeApplication.java
-/Users/i861347/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/HomeController.java
-/Users/i861347/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/domain/EmailObject.java
+/Users/patilvijayg/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/SmtpMailSender.java
+/Users/patilvijayg/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/domain/EmailObject.java
+/Users/patilvijayg/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/HomeController.java
+/Users/patilvijayg/IdeaProjects/aboutme/src/main/java/com/patilvijayg/aboutme/controller/RootController.java
+/Users/patilvijayg/IdeaProjects/aboutme/src/main/java/com/patilvijayg/AboutmeApplication.java
