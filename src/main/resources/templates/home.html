@@ -40,13 +40,13 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
 		<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/> -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="//oss.maxcdn.com/devicons/1.8.0/css/devicons.min.css"/>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 		<link rel="stylesheet" th:href="@{/css/magnific-popup.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/main.min.css}"/>
 		
-		<!-- Inline Style -->
-		<style> 
+		 Inline Style
+		<style>
 		  .vegas-loading{border-radius:10px;background:#000;background:rgba(0,0,0,.7);background:url(/resume/img/loading.gif) no-repeat center center;height:32px;left:20px;position:fixed;top:20px;width:32px;z-index:0}.vegas-overlay{background:transparent url(overlays/01.png);opacity:.5;z-index:-1}.vegas-background{-ms-interpolation-mode:bicubic;image-rendering:optimizeQuality;max-width:none!important;z-index:-2}.vegas-overlay,.vegas-background{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 		</style>
 		
@@ -68,17 +68,17 @@
 	       </div>
 	   </div>
 	   
-		<div class="container" th:include="navigation :: menu" role="navigation"></div>  
-		<section id="page-welcome" class="page-welcome" th:include="welcome :: welcome"></section>
-		<section id="page-profile" class="page-profile" th:include="profile :: profile"></section>	
-		<section id="page-skills" class="page-skills" th:include="skills :: skills"></section>
-		<section id="page-experience" class="page-experience" th:include="experience :: experience"></section>
-		<section id="page-education" class="page-education" th:include="education :: education"></section>
-		<section id="page-blog" class="page-blog" th:include="blog :: blog"></section>
-		<!-- <section id="page-portfolio" class="page-portfolio" th:include="portfolio :: portfolio"></section> -->
-		<section id="page-contact" class="page-contact" th:include="contact :: contact"></section>
-		<section id="workSamples" class="page-workSample" th:include="workSample :: worksample"></section>
-		<div id="page-footer" class="page-footer" th:include="footer :: footer" role="contentinfo"></div>
+		<div class="container" th:insert="~{navigation :: menu}" role="navigation"></div>
+		<section id="page-welcome" class="page-welcome" th:insert="~{welcome :: welcome}"></section>
+		<section id="page-profile" class="page-profile" th:insert="~{profile :: profile}"></section>
+<!--		<section id="page-skills" class="page-skills" th:insert="~{skills :: skills}"></section>-->
+<!--		<section id="page-experience" class="page-experience" th:insert="~{experience :: experience}"></section>-->
+<!--		<section id="page-education" class="page-education" th:insert="~{education :: education}"></section>-->
+<!--		<section id="page-blog" class="page-blog" th:insert="~{blog :: blog}"></section>-->
+<!--		&lt;!&ndash; <section id="page-portfolio" class="page-portfolio" th:insert="portfolio :: portfolio"></section> &ndash;&gt;-->
+<!--		<section id="page-contact" class="page-contact" th:insert="~{contact :: contact}"></section>-->
+<!--		<section id="workSamples" class="page-workSample" th:insert="~{workSample :: worksample}"></section>-->
+		<div id="page-footer" class="page-footer" th:insert="~{footer :: footer}" role="contentinfo"></div>
 		
 		<!-- JavaScripts -->
 		<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js}"></script>

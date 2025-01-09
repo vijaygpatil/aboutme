@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html   xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org">
+        xmlns:th="http://www.thymeleaf.org" lang="en">
 	<body>
 	    <div th:fragment="profile">
 	        <div class="container">
 	            <header role="banner">
-	                <h2 class="section-title"><i class="fa fa-user"/><span th:text="' '+#{profile.header}"/></h2>
+	                <h2 class="section-title"><i class="fa fa-user"></i><span th:text="' '+#{profile.header}"/></h2>
 	            </header>
 	
 	            <article role="main">
@@ -16,14 +16,14 @@
 	                                <h3>
 	                                    <ul class="list-inline">
 	                                        <li><span th:text="#{profile.user}+' '"/></li>
-	                                        <li><small><span id="myAge"/></small></li>
+	                                        <li><small><span id="myAge"></span></small></li>
 	                                    </ul>
 	                                </h3>
 	                                <h4>
 	                                    <ul class="list-inline">
-	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="http://schema.org/place"><i class="fa fa-globe"/><a target="_blank" href="https://www.google.com/maps/dir/Olathe,+KS/Olathe,+KS" th:utext="' '+#{profile.user.current.location}"/></li> 
-	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="http://schema.org/place"><i class="fa fa-home"/><a target="_blank" href="https://www.google.com/maps/place/Dombivli,+Maharashtra,+India" th:utext="' '+#{profile.user.home.location}"/></li> 
-	                                        <li><i class="fa fa-wechat"/><span th:text="' '+#{profile.user.language1}"/><span id="hindiLanguage" th:text="' '+#{profile.user.language2}"/><span id="marathiLanguage" th:text="' '+#{profile.user.language3}"/><span id="gujaratiLanguage" th:text="' '+#{profile.user.language4}"/></li>
+	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="https://schema.org/Place"><i class="fa fa-globe"></i><a target="_blank" href="https://www.google.com/maps/dir/Olathe,+KS/Olathe,+KS" th:utext="' '+#{profile.user.current.location}"></a></li>
+	                                        <li itemprop="homeLocation" itemscope="itemscope" itemtype="https://schema.org/Place"><i class="fa fa-home"></i><a target="_blank" href="https://www.google.com/maps/place/Dombivli,+Maharashtra,+India" th:utext="' '+#{profile.user.home.location}"></a></li>
+	                                        <li><i class="fa fa-wechat"></i><span th:text="' '+#{profile.user.language1}"/><span id="hindiLanguage" th:text="' '+#{profile.user.language2}"/><span id="marathiLanguage" th:text="' '+#{profile.user.language3}"/><span id="gujaratiLanguage" th:text="' '+#{profile.user.language4}"/></li>
 	                                    </ul>
 	                                </h4>
 	                            </div>
@@ -35,17 +35,17 @@
                                 	<hr class="horizontalLine hidden-xs"/>
                                 	<div class="hidden-xs" id="page-profile-facebook">
                                 		<a target="_blank" href="https://www.facebook.com/patilvijayg" class="btn btn-round btn-clear btn-facebook">
-                                			<i class="fa fa-facebook"/>
+                                			<i class="fa fa-facebook"></i>
                                			</a>
                                 	</div>
                                 </dt>
-                                <dd><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p1}"/><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p2}"/><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p3}"/><hr/></dd>
-                                <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.experience}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.experience}"/><hr class="horizontalLine hidden-xs"/><div class="hidden-xs" id="page-profile-linkedin"><a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"/></a></div></dt>
-                                <dd><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p1}"/><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p2}"/><hr/></dd>
+                                <dd><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p1}"></p><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p2}"></p><p class="justify-text" th:utext="#{profile.user.topic.bio.description.p3}"></p><hr/></dd>
+                                <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.experience}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.experience}"/><hr class="horizontalLine hidden-xs"/><div class="hidden-xs" id="page-profile-linkedin"><a target="_blank" href="https://www.linkedin.com/in/patilvijayg" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a></div></dt>
+                                <dd><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p1}"></p><p class="justify-text" th:utext="#{profile.user.topic.experience.description.p2}"></p><hr/></dd>
                                 <dt><u class="visible-xs-block"><span th:text="#{profile.user.topic.interest}"/></u><span class="visible-sm-block visible-md-block visible-lg-block" th:text="#{profile.user.topic.interest}"/><hr class="horizontalLine hidden-xs"/>
                                 <div class="hidden-xs" id="page-profile-wordpress">
                                 		<a target="_blank" href="http://patilvijayg.synology.me/wordpress/" class="btn btn-round btn-clear btn-wordpress">
-                                			<i class="fa fa-wordpress"/>
+                                			<i class="fa fa-wordpress"></i>
                                			</a>
                                 	</div>
                                 </dt>
@@ -82,7 +82,7 @@
                                         <li><i style="color:#CCCCCC" class="fa fa-apple"/></li>
                                         <li><i style="color:#d34836" class="fa fa-google"/></li>
                                     </ul> -->
-                                    <p class="justify-text" th:utext="#{profile.user.topic.interest.description}"/><hr/>   
+                                    <p class="justify-text" th:utext="#{profile.user.topic.interest.description}"></p><hr/>
                                 </dd>
                             </dl>
                         </div>
@@ -90,7 +90,7 @@
                         <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <button id="printResume" class="alert-link btn btn-default"><i class="fa fa-print fa-fw"/><span th:text="#{profile.printresume}"/></button><span th:text="' '+#{profile.printresume.info}"/>
+                                    <button id="printResume" class="alert-link btn btn-default"><i class="fa fa-print fa-fw"></i><span th:text="#{profile.printresume}"/></button><span th:text="' '+#{profile.printresume.info}"/>
                                 </div>
                             </div>
                         </div> 
