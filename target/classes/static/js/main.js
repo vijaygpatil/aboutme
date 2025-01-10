@@ -4,12 +4,6 @@ $(document).ready(function() {
             src : '/img/profileImage/1.jpg',
             fade : 3000
         }, {
-            src : '/img/profileImage/2.jpg',
-            fade : 3000
-        }, {
-            src : '/img/profileImage/3.jpg',
-            fade : 3000
-        }, {
             src : '/img/profileImage/4.jpg',
             fade : 3000
         }, {
@@ -19,8 +13,8 @@ $(document).ready(function() {
             src : '/img/profileImage/6.jpg',
             fade : 3000
         }, {
-            src : '/img/profileImage/7.jpg',
-            fade : 3000
+			src : '/img/profileImage/7.jpg',
+			fade: 3000
         // }, {
         //     src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo08.jpg',
         //     fade : 3000
