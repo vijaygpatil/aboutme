@@ -10,7 +10,75 @@
                  <article role="main">
                     <div class="row">
                         <div class="panel-group col-xs-12 col-sm-12 col-md-12 col-lg-12" id="accordion2">
-                            
+
+                            <div class="panel panel-info" itemprop="worksFor" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                                <div class="panel-heading">
+                                    <h3>
+                                        <ul class="list-inline">
+                                            <li><a target="_blank" itemprop="url" href="http://www.garmin.com/en-US"><i id="flashIcon" class="fa fa-external-link-square"></i></a><span itemprop="legalName" th:text="' '+#{experience.company.zero}"/></li>
+                                            <li><i class="fa fa-globe"></i><span th:utext="' '+#{experience.company.zero.location}"></span></li>
+                                            <li><a id="garminDetailsCollapse" data-toggle="collapse" data-parent="#accordion2" href="#garminDetails"><i id="flashIcon" class="fa fa-chevron-circle-up animated flash"></i></a></li>
+                                        </ul>
+                                    </h3>
+                                    <h4>
+                                        <ul class="list-inline">
+                                            <li itemprop="department"><i class="fa fa-building"></i><span th:text="' '+#{experience.company.zero.dept}"/></li>
+                                            <li><i class="fa fa-desktop"></i><span th:text="' '+#{experience.company.zero.role}"/></li>
+                                            <li><i class="fa fa-calendar"></i><span th:text="' '+#{experience.company.zero.duration}"/></li>
+                                        </ul>
+                                    </h4>
+                                </div>
+
+                                <div id="garminDetails" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="justify-text">
+                                            <h4><i class="fa fa-certificate"></i><span th:text="' '+#{experience.certification}"/></h4>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.spring.certification}"/><br/>
+                                            <h4><i class="fa fa-thumbs-up"></i><span th:text="' '+#{experience.accomplishments}"/></h4>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.recognition.three}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.recognition.five }"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.recognition.four}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.recognition.one}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.recognition.two}"/>
+                                            <h4><i class="fa fa-trophy"></i><span th:text="' '+#{experience.accolades}"/></h4>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.award.one}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.award.two}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><a href='https://github.com/vijaygpatil/JiraQuickViewPlugin'><span class="text-success" th:text="' '+#{experience.garmin.award.three}"/></a><br/>
+                                            <i class="fa fa-star padAccolade"></i><span class="text-success" th:text="' '+#{experience.garmin.award.four}"/><br/>
+                                            <i class="fa fa-star padAccolade"></i><a href='https://github.com/vijaygpatil/gradleReleaseGitPushPlugin'><span class="text-success" th:text="' '+#{experience.garmin.award.five}"/></a><br/>
+                                            <div id="duties">
+                                                <h4><i class="fa fa-tasks"></i><span th:text="' '+#{experience.duties}"/></h4>
+                                                <ul>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty1}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty2}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty3}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty4}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty5}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty6}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty7}" /></li>
+                                                    <li><span class="text-info" th:text="#{experience.garmin.duty8}" /></li>
+                                                </ul>
+                                            </div>
+                                            <h4><i class="fa fa-book"></i><span th:text="' '+#{experience.projects}"/></h4>
+                                            <dl class="dl-horizontal">
+                                                <dt><h5><span th:text="#{experience.garmin.project.one}"/></h5></dt>
+                                                <dd><span class="text-info" th:text="#{experience.garmin.project.description.one}"/><p><b class="text-warning" th:text="' '+#{experience.garmin.project.my.work.one}"/></p></dd>
+                                                <dt><h5><span th:text="#{experience.garmin.project.two}"/></h5></dt>
+                                                <dd><span class="text-info" th:text="#{experience.garmin.project.description.two}"/><p><b class="text-warning" th:text="' '+#{experience.garmin.project.my.work.two}"/></p></dd>
+                                                <dt><h5><span th:text="#{experience.garmin.project.three}"/></h5></dt>
+                                                <dd><span class="text-info" th:text="#{experience.garmin.project.description.three}"/><p><b class="text-warning" th:text="' '+#{experience.garmin.project.my.work.three}"/></p></dd>
+                                                <dt><h5><span th:text="#{experience.garmin.project.four}"/></h5></dt>
+                                                <dd><span class="text-info" th:text="#{experience.garmin.project.description.four}"/><p><b class="text-warning" th:text="' '+#{experience.garmin.project.my.work.four}"/></p></dd>
+                                                <dt><h5><span th:text="#{experience.garmin.project.five}"/></h5></dt>
+                                                <dd><span class="text-info" th:text="#{experience.garmin.project.description.five}"/><p><b class="text-warning" th:text="' '+#{experience.garmin.project.my.work.five}"/></p></dd>
+                                            </dl>
+                                            <h4><i class="fa fa-gear fa-spin"></i><span th:text="' '+#{experience.environment}"/></h4>
+                                            <span class="text-info" th:utext="' '+#{experience.garmin.project.technology}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="panel panel-info" itemprop="worksFor" itemscope="itemscope" itemtype="https://schema.org/Organization">
                                 <div class="panel-heading">
                                      <h3>

@@ -1,20 +1,26 @@
 $(document).ready(function() {
 	$.vegas('slideshow', {
 		backgrounds : [ {
-            src : '/img/profileImage/1.jpg',
+            src : '/img/profileImage/11.jpg',
             fade : 3000
         }, {
-            src : '/img/profileImage/4.jpg',
+            src : '/img/profileImage/22.jpg',
             fade : 3000
         }, {
-            src : '/img/profileImage/5.jpg',
+            src : '/img/profileImage/44.jpg',
             fade : 3000
         }, {
-            src : '/img/profileImage/6.jpg',
+            src : '/img/profileImage/55.jpg',
             fade : 3000
-        }, {
-			src : '/img/profileImage/7.jpg',
-			fade: 3000
+		}, {
+			src : '/img/profileImage/66.jpg',
+			fade : 3000
+		}, {
+			src : '/img/profileImage/77.jpg',
+			fade : 3000
+		}, {
+			src : '/img/profileImage/88.jpg',
+			fade : 3000
         // }, {
         //     src : 'https://s3-us-west-2.amazonaws.com/aboutmeprofilepictures/NatGeo08.jpg',
         //     fade : 3000
