@@ -1,0 +1,7 @@
+services:
+  aboutme:
+    image: patilvijayg/aboutme:latest
+    container_name: aboutme
+    ports:
+      - "7070:7070"
+    restart: unless-stopped
